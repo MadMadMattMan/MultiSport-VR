@@ -7,25 +7,29 @@ using System.ComponentModel;
 
 public class ClubHandScript : MonoBehaviour
 {
-    [SerializeField] Vector3 clubOffset, clubRotaion;
+    Vector3 clubOffset, clubRotaion;
     [SerializeField] GameObject ClubPrefab, ClubCurrent = null;
-    [SerializeField] Transform PlayerReferance; 
+    Transform PlayerReferance; 
     [SerializeField] GameObject TestHand;
     [SerializeField] Transform LeftController, RightController;
+    [SerializeField] GameObject ClubL, ClubR;
     [SerializeField] GameObject LeftControllerObj, RightControllerObj;
     [SerializeField] bool gripL = false, gripR = false;
     [SerializeField] string clubSide = null;
 
-    private void Start()
+    void Start()
     {
         if (clubSide == null && !OVRInput.connectedControllerTypes.Equals("None"))
         {
             clubSide = "r";
-            Destroy(ClubCurrent); LeftControllerObj.SetActive(true); RightControllerObj.SetActive(false);
-            ClubCurrent = Instantiate(ClubPrefab, ClubSpawnPos(), ClubSpawnRot(), RightController);
+            ClubCurrent = ClubL;
+            ClubR.SetActive(true);
+            ClubL.SetActive(false);
+            RightControllerObj.SetActive(false);
+            LeftControllerObj.SetActive(true);
         }
 
-        TestClub();
+        //TestClub();
 
         Debug.Log(OVRInput.connectedControllerTypes.ToString());
     }
@@ -39,16 +43,22 @@ public class ClubHandScript : MonoBehaviour
         {
             gripL = false;
             clubSide = "l";
-            Destroy(ClubCurrent); LeftControllerObj.SetActive(false); RightControllerObj.SetActive(true); 
-            ClubCurrent = Instantiate(ClubPrefab, ClubSpawnPos(), ClubSpawnRot(), LeftController);
+            ClubCurrent = ClubL;
+            ClubR.SetActive(false);
+            ClubL.SetActive(true);
+            RightControllerObj.SetActive(true);
+            LeftControllerObj.SetActive(false);
         }
         else if (clubSide != "r" && gripR)
         {
             gripR = false;
             clubSide = "r";
-            Destroy(ClubCurrent); LeftControllerObj.SetActive(true); RightControllerObj.SetActive(false);
-            ClubCurrent = Instantiate(ClubPrefab, ClubSpawnPos(), ClubSpawnRot(), RightController);
-        
+            ClubCurrent = ClubL;
+            ClubR.SetActive(true);
+            ClubL.SetActive(false);
+            RightControllerObj.SetActive(false);
+            LeftControllerObj.SetActive(true);
+
         }
         else if (gripR || gripL)
         {
