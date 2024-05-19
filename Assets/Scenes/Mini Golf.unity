@@ -9272,8 +9272,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1301833191}
+  m_Children: []
   m_Father: {fileID: 1344254741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &524169190
@@ -13806,11 +13805,23 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1141767272}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 208562012558852118, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
+      propertyPath: m_ImplicitCom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 208562012558852118, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208562012558852118, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
+      propertyPath: m_ImplicitTensor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1292740878894244762, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
       propertyPath: m_Name
-      value: golf clubs
+      value: golf clubs l
       objectReference: {fileID: 0}
     - target: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
       propertyPath: m_LocalScale.x
@@ -13868,16 +13879,26 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3384144382462427420, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384144382462427420, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
+      propertyPath: _leftHandGrabInteractable
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384144382462427420, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
+      propertyPath: _rightHandGrabInteractable
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7628191757681153179, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2127585191}
   m_SourcePrefab: {fileID: 100100000, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
---- !u!4 &818321320 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-  m_PrefabInstance: {fileID: 818321319}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &818966264
 GameObject:
   m_ObjectHideFlags: 0
@@ -19756,8 +19777,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 818321320}
+  m_Children: []
   m_Father: {fileID: 1098893284}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1141767273
@@ -21465,18 +21485,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019f50d60b47da54985a0115ee691461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClubPrefab: {fileID: 1292740878894244762, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-  ClubCurrent: {fileID: 0}
-  TestHand: {fileID: 1164908841}
-  LeftController: {fileID: 1358065954}
-  RightController: {fileID: 343116168}
-  ClubL: {fileID: 524169188}
-  ClubR: {fileID: 1141767271}
-  LeftControllerObj: {fileID: 1344254740}
-  RightControllerObj: {fileID: 1098893283}
-  gripL: 0
-  gripR: 0
-  clubSide: 
+  putter: {fileID: 0}
+  controllerR: {fileID: 0}
+  controllerL: {fileID: 0}
+  playerOrigin: {fileID: 0}
+  playerEye: {fileID: 0}
 --- !u!4 &1231449112
 Transform:
   m_ObjectHideFlags: 0
@@ -23171,68 +23184,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 107016886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1301833190
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 524169189}
-    m_Modifications:
-    - target: {fileID: 1292740878894244762, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-      propertyPath: m_Name
-      value: golf clubs
-      objectReference: {fileID: 0}
-    - target: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0085
-      objectReference: {fileID: 0}
-    - target: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0023
-      objectReference: {fileID: 0}
-    - target: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0044
-      objectReference: {fileID: 0}
-    - target: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9942683
-      objectReference: {fileID: 0}
-    - target: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.10691388
-      objectReference: {fileID: 0}
-    - target: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 12.275
-      objectReference: {fileID: 0}
-    - target: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
---- !u!4 &1301833191 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1926252384194820384, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
-  m_PrefabInstance: {fileID: 1301833190}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1305016076
 GameObject:
   m_ObjectHideFlags: 0
@@ -39493,6 +39444,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125847793}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2127585184 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7628191757681153179, guid: df36b95af7e2b8744ae1e1b578c3a82d, type: 3}
+  m_PrefabInstance: {fileID: 818321319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!138 &2127585191
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127585184}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &2127891266
 GameObject:
   m_ObjectHideFlags: 0
@@ -40038,8 +40009,8 @@ Rigidbody:
   m_GameObject: {fileID: 6800398302965785855}
   serializedVersion: 4
   m_Mass: 0.045
-  m_Drag: 0.05
-  m_AngularDrag: 0.05
+  m_Drag: 0.005
+  m_AngularDrag: 0.005
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -40055,7 +40026,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -40074,3 +40045,4 @@ SceneRoots:
   - {fileID: 1936985524}
   - {fileID: 1231449112}
   - {fileID: 1164908842}
+  - {fileID: 818321319}
