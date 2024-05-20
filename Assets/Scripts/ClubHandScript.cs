@@ -4,109 +4,41 @@ using UnityEngine;
 using Oculus.Interaction.Input;
 using System.Diagnostics.Tracing;
 using System.ComponentModel;
+using UnityEngine.Rendering;
 
 public class ClubHandScript : MonoBehaviour
 {
-    Vector3 clubOffset, clubRotaion;
-    [SerializeField] GameObject ClubPrefab, ClubCurrent = null;
-    Transform PlayerReferance; 
-    [SerializeField] GameObject TestHand;
-    [SerializeField] Transform LeftController, RightController;
-    [SerializeField] GameObject ClubL, ClubR;
-    [SerializeField] GameObject LeftControllerObj, RightControllerObj;
-    [SerializeField] bool gripL = false, gripR = false;
-    [SerializeField] string clubSide = null;
+    Transform clubTarget;
+    [SerializeField] GameObject putter;
+    Rigidbody putterRb;
+    [SerializeField] GameObject controllerR, controllerL;
+    [SerializeField] Transform playerOrigin, playerEye;
+    float height;
+    bool holding;
 
     void Start()
     {
-        if (clubSide == null && !OVRInput.connectedControllerTypes.Equals("None"))
-        {
-            clubSide = "r";
-            ClubCurrent = ClubL;
-            ClubR.SetActive(true);
-            ClubL.SetActive(false);
-            RightControllerObj.SetActive(false);
-            LeftControllerObj.SetActive(true);
-        }
-
-        //TestClub();
-
-        Debug.Log(OVRInput.connectedControllerTypes.ToString());
+        height = playerEye.position.y - playerOrigin.position.y;
+        SpawnClub();
     }
 
-    void Update()
+    void SpawnClub()
     {
-        gripL = OVRInput.Get(OVRInput.Button.PrimaryThumbstick);
-        gripR = OVRInput.Get(OVRInput.Button.SecondaryThumbstick);
-
-        if (clubSide != "l" && gripL)
-        {
-            gripL = false;
-            clubSide = "l";
-            ClubCurrent = ClubL;
-            ClubR.SetActive(false);
-            ClubL.SetActive(true);
-            RightControllerObj.SetActive(true);
-            LeftControllerObj.SetActive(false);
-        }
-        else if (clubSide != "r" && gripR)
-        {
-            gripR = false;
-            clubSide = "r";
-            ClubCurrent = ClubL;
-            ClubR.SetActive(true);
-            ClubL.SetActive(false);
-            RightControllerObj.SetActive(false);
-            LeftControllerObj.SetActive(true);
-
-        }
-        else if (gripR || gripL)
-        {
-            gripR = false;
-            gripL = false;
-        }
+        putter.SetActive(true);
+        putter.GetComponent<Transform>().position = clubTarget.position;
+        putter.GetComponent<Transform>().rotation = clubTarget.rotation;
     }
 
-    void TestClub()
+    private void OnTriggerStay(Collider other)
     {
-        clubSide = "pc";
-        TestHand.SetActive(true);
-        Destroy(ClubCurrent);
-        ClubCurrent = Instantiate(ClubPrefab, TestHand.transform.position + clubOffset, Quaternion.Euler(TestHand.transform.rotation.eulerAngles + clubRotaion), TestHand.transform);
-
-    }
-
-    Vector3 ClubSpawnPos()
-    {
-        if (clubSide == "r")
+        if (other.gameObject == controllerR)
         {
-            return RightController.position + clubOffset;
+            putter.GetComponent<FixedJoint>().connectedBody = controllerR.GetComponent<Rigidbody>();
+            putter.GetComponent<MeshCollider>();
         }
-        else
+        else if (other.gameObject == controllerL)
         {
-            return LeftController.position + clubOffset;
+            putter.GetComponent<FixedJoint>().connectedBody = controllerL.GetComponent<Rigidbody>();
         }
-    }
-
-    Quaternion ClubSpawnRot()
-    {
-        Vector3 i;
-        if (clubSide == "r")
-        {
-            i = RightController.transform.eulerAngles + clubRotaion + SnapTurnCorection();
-        }
-        else
-        {
-            i = LeftController.transform.eulerAngles + clubRotaion + SnapTurnCorection();
-        }
-
-        return Quaternion.Euler(i);
-    }
-
-    Vector3 SnapTurnCorection()
-    {
-        float i = PlayerReferance.rotation.y;
-
-        return new Vector3(0, i, 0);
     }
 }
