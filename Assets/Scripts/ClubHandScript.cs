@@ -8,37 +8,57 @@ using UnityEngine.Rendering;
 
 public class ClubHandScript : MonoBehaviour
 {
-    Transform clubTarget;
-    [SerializeField] GameObject putter;
+    [SerializeField] GameObject putter, putter_head, putter_shaft, putter_handle, putter_base;
     Rigidbody putterRb;
+    FixedJoint putterFj;
     [SerializeField] GameObject controllerR, controllerL;
-    [SerializeField] Transform playerOrigin, playerEye;
-    float height;
-    bool holding;
+    [SerializeField] Transform playerOrigin, playerHead;
+    float playerHeight;
+    [SerializeField] bool isHoldingL, isHoldingR, isTouching;
 
     void Start()
     {
-        height = playerEye.position.y - playerOrigin.position.y;
+        putterRb = putter.GetComponent<Rigidbody>();
+        putterFj = putter.GetComponent<FixedJoint>();
+        playerHeight = playerHead.position.y - playerOrigin.position.y;
         SpawnClub();
     }
 
     void SpawnClub()
     {
         putter.SetActive(true);
-        putter.GetComponent<Transform>().position = clubTarget.position;
-        putter.GetComponent<Transform>().rotation = clubTarget.rotation;
+        putter.GetComponent<Transform>().position = ClubTargetPosition();
+    }
+    
+    Vector3 ClubTargetPosition()
+    {
+        return new Vector3(playerOrigin.position.x, (playerHeight * 0.75f), (playerOrigin.position.z + 1));
     }
 
-    private void OnTriggerStay(Collider other)
+    private void FixedUpdate()
     {
-        if (other.gameObject == controllerR)
+        if (OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) >= 0.75f)
+            isHoldingL = true;
+        else
+            isHoldingL = false;
+
+        if (OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) >= 0.75f)
+            isHoldingR = true;
+        else
+            isHoldingR = false;
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject == controllerR && isHoldingR && putterFj.connectedBody == null)
         {
-            putter.GetComponent<FixedJoint>().connectedBody = controllerR.GetComponent<Rigidbody>();
-            putter.GetComponent<MeshCollider>();
+            putterFj.connectedBody = controllerR.GetComponent<Rigidbody>();    
+            putter.GetComponent<MeshCollider>().isTrigger = false;
         }
-        else if (other.gameObject == controllerL)
+        else if (other.gameObject == controllerL && isHoldingL && putterFj.connectedBody == null)
         {
-            putter.GetComponent<FixedJoint>().connectedBody = controllerL.GetComponent<Rigidbody>();
+            putterFj.connectedBody = controllerL.GetComponent<Rigidbody>();
+            putter.GetComponent<MeshCollider>().isTrigger = false;
         }
     }
 }
