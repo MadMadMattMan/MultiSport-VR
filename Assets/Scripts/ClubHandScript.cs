@@ -8,7 +8,7 @@ using UnityEngine.Rendering;
 
 public class ClubHandScript : MonoBehaviour
 {
-    [SerializeField] GameObject putter;
+    [SerializeField] GameObject putter, putter_head, putter_shaft, putter_handle, putter_base;
     Rigidbody putterRb;
     FixedJoint putterFj;
     [SerializeField] GameObject controllerR, controllerL;
