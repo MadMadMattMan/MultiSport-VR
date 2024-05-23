@@ -1,18 +1,36 @@
+using Oculus.Interaction.DebugTree;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PutterPhysics : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject ball, putterHead, putterGhost;
+    [SerializeField] ClubLength currentClubLength;
 
-    // Update is called once per frame
-    void Update()
+    public void GhostHead()
     {
-        
+        //DebugLog
+        Debug.Log("Set GhostHead");
+
+        //Changes clubs head to ghost
+        putterHead.SetActive(false);
+        putterGhost.SetActive(true);
+
+        //Disables Height detection and length extention
+        currentClubLength.boolDetectHeight = false;
+    }
+    
+    public void PhysicsHead()
+    {
+        //DebugLog
+        Debug.Log("Removed GhostHead");
+
+        //Changes clubs head to physical
+        putterHead.SetActive(true);
+        putterGhost.SetActive(false);
+
+        //Enables Height detection and length extention
+        currentClubLength.boolDetectHeight = true;
     }
 }

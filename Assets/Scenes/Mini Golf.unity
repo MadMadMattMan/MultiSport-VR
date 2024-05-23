@@ -1268,7 +1268,7 @@ GameObject:
   - component: {fileID: 119660674}
   - component: {fileID: 119660673}
   - component: {fileID: 119660672}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6379,6 +6379,11 @@ Transform:
   - {fileID: 421252636}
   m_Father: {fileID: 2106160413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &426098970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3735890238041053533, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+  m_PrefabInstance: {fileID: 5599555330996575538}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &426724137
 GameObject:
   m_ObjectHideFlags: 0
@@ -6645,7 +6650,7 @@ GameObject:
   - component: {fileID: 445765868}
   - component: {fileID: 445765867}
   - component: {fileID: 445765866}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8846,7 +8851,6 @@ GameObject:
   m_Component:
   - component: {fileID: 619828213}
   - component: {fileID: 619828214}
-  - component: {fileID: 619828215}
   m_Layer: 0
   m_Name: MetaQuestTouchPro_Left
   m_TagString: Untagged
@@ -8894,28 +8898,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &619828215
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619828212}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2703057380131705829, guid: 2b9768cc0be08784b91b7da60696ba29, type: 3}
 --- !u!1 &635528776
 GameObject:
   m_ObjectHideFlags: 0
@@ -8926,7 +8908,6 @@ GameObject:
   m_Component:
   - component: {fileID: 635528777}
   - component: {fileID: 635528778}
-  - component: {fileID: 635528779}
   m_Layer: 0
   m_Name: MetaQuestTouchPlus_Right
   m_TagString: Untagged
@@ -8973,28 +8954,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &635528779
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 635528776}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1551496305373071002, guid: deed68a7fd2e9234899298cf80fae7ad, type: 3}
 --- !u!1 &635637090
 GameObject:
   m_ObjectHideFlags: 0
@@ -14051,7 +14010,6 @@ GameObject:
   m_Component:
   - component: {fileID: 974036640}
   - component: {fileID: 974036641}
-  - component: {fileID: 974036642}
   m_Layer: 0
   m_Name: MetaQuestTouchPro_Right
   m_TagString: Untagged
@@ -14099,28 +14057,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &974036642
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974036639}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8344784108403131872, guid: c933168a9a0f1e04bb793786b96e2f4b, type: 3}
 --- !u!1 &974372526
 GameObject:
   m_ObjectHideFlags: 0
@@ -14374,7 +14310,6 @@ GameObject:
   m_Component:
   - component: {fileID: 996265046}
   - component: {fileID: 996265047}
-  - component: {fileID: 996265048}
   m_Layer: 0
   m_Name: OculusTouchForQuest2RightModel
   m_TagString: Untagged
@@ -14421,28 +14356,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &996265048
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996265045}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: 25b5eb0761edb6346b0b3444af76b55e, type: 3}
 --- !u!1 &997472794
 GameObject:
   m_ObjectHideFlags: 0
@@ -15152,7 +15065,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1051709746}
   - component: {fileID: 1051709747}
-  - component: {fileID: 1051709748}
   m_Layer: 0
   m_Name: right_touch_controller_model_skel
   m_TagString: Untagged
@@ -15198,28 +15110,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &1051709748
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051709745}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: c3798d66af7bbe54bbfe22a3b302300b, type: 3}
 --- !u!1 &1051861673
 GameObject:
   m_ObjectHideFlags: 0
@@ -15230,7 +15120,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1051861674}
   - component: {fileID: 1051861675}
-  - component: {fileID: 1051861676}
   m_Layer: 0
   m_Name: left_touch_controller_model_skel
   m_TagString: Untagged
@@ -15276,28 +15165,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &1051861676
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051861673}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: c3ba18e9fa5e9104098cbdbb3e23a5b4, type: 3}
 --- !u!1 &1052270570
 GameObject:
   m_ObjectHideFlags: 0
@@ -17315,7 +17182,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1175819487}
   - component: {fileID: 1175819488}
-  - component: {fileID: 1175819489}
   m_Layer: 0
   m_Name: MetaQuestTouchPlus_Left
   m_TagString: Untagged
@@ -17362,28 +17228,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &1175819489
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175819486}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1318633201023460034, guid: 2b1aaafc31655024394d83dc00911c1c, type: 3}
 --- !u!1 &1185430671
 GameObject:
   m_ObjectHideFlags: 0
@@ -20541,7 +20385,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1384399672}
   - component: {fileID: 1384399673}
-  - component: {fileID: 1384399674}
   m_Layer: 0
   m_Name: OculusTouchForQuestAndRiftS_Left
   m_TagString: Untagged
@@ -20588,28 +20431,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &1384399674
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384399671}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 32fbc8bcebb64584da5868aeeb086cda, type: 3}
 --- !u!1 &1385752403
 GameObject:
   m_ObjectHideFlags: 0
@@ -21130,7 +20951,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1400747242}
   - component: {fileID: 1400747243}
-  - component: {fileID: 1400747244}
   m_Layer: 0
   m_Name: OculusTouchForQuest2LeftModel
   m_TagString: Untagged
@@ -21177,28 +20997,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &1400747244
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1400747241}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: 8b83018900d13bb4f8e0ad895cb004e5, type: 3}
 --- !u!1 &1403708000
 GameObject:
   m_ObjectHideFlags: 0
@@ -25302,7 +25100,7 @@ GameObject:
   - component: {fileID: 1601414024}
   - component: {fileID: 1601414023}
   - component: {fileID: 1601414022}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25396,139 +25194,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601414020}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1604985433
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1604985437}
-  - component: {fileID: 1604985436}
-  - component: {fileID: 1604985435}
-  - component: {fileID: 1604985434}
-  - component: {fileID: 1604985438}
-  m_Layer: 0
-  m_Name: Ball
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!135 &1604985434
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1604985433}
-  m_Material: {fileID: 13400000, guid: 898fb9b627418b046a1453529d4d1015, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1604985435
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1604985433}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1604985436
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1604985433}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1604985437
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1604985433}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14, y: 0.481, z: -0.009}
-  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1604985438
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1604985433}
-  serializedVersion: 4
-  m_Mass: 0.5
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 3
 --- !u!1 &1608014988
 GameObject:
   m_ObjectHideFlags: 0
@@ -30256,7 +29921,7 @@ GameObject:
   - component: {fileID: 1936985523}
   - component: {fileID: 1936985522}
   - component: {fileID: 1936985521}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32727,7 +32392,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2114553607}
   - component: {fileID: 2114553608}
-  - component: {fileID: 2114553609}
   m_Layer: 0
   m_Name: OculusTouchForQuestAndRiftS_Right
   m_TagString: Untagged
@@ -32774,28 +32438,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &2114553609
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114553606}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 37ba10a26a648144fa2390c8adfb2c8a, type: 3}
 --- !u!1 &2115898826
 GameObject:
   m_ObjectHideFlags: 0
@@ -33489,7 +33131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2589948493797661359, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1269
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2589948493797661359, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33523,11 +33165,107 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3434746459245807307, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474440720633601339, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: m_Name
+      value: putter_ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 4170796882321517862, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004148417298994264, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0631
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004148417298994264, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2348
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004148417298994264, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0198
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509634736073204463, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 6800398302965785855}
+    - target: {fileID: 6509634736073204463, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: putterHead
+      value: 
+      objectReference: {fileID: 426098970}
+    - target: {fileID: 6509634736073204463, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: putterGhost
+      value: 
+      objectReference: {fileID: 5599555330996575542}
+    - target: {fileID: 6509634736073204463, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: currentClubLength
+      value: 
+      objectReference: {fileID: 5599555330996575549}
+    - target: {fileID: 7650816343694518711, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833388384073039339, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: handleEnd
+      value: 
+      objectReference: {fileID: 5599555330996575541}
+    - target: {fileID: 7833388384073039339, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: baseTransform
+      value: 
+      objectReference: {fileID: 5599555330996575539}
+    - target: {fileID: 7833388384073039339, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: boolDetectHeight
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7833388384073039339, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1758839349212528501, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5599555330996575549}
   m_SourcePrefab: {fileID: 100100000, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+--- !u!4 &5599555330996575539 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7650816343694518711, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+  m_PrefabInstance: {fileID: 5599555330996575538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5599555330996575540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1758839349212528501, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+  m_PrefabInstance: {fileID: 5599555330996575538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5599555330996575541 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5004148417298994264, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+  m_PrefabInstance: {fileID: 5599555330996575538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5599555330996575542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3474440720633601339, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+  m_PrefabInstance: {fileID: 5599555330996575538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5599555330996575549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5599555330996575540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9acd6b8cb4b6745820fbaf34f9c0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleEnd: {fileID: 5599555330996575541}
+  baseTransform: {fileID: 5599555330996575539}
+  clubHeight: 0
+  boolDetectHeight: 0
 --- !u!23 &5718040866248285423
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33599,7 +33337,7 @@ Transform:
   m_GameObject: {fileID: 6800398302965785855}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.22, y: 0, z: 0.79999995}
+  m_LocalPosition: {x: 0.402, y: 0, z: -0.002}
   m_LocalScale: {x: 0.0015, y: 0.0015, z: 0.0015}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -33664,7 +33402,6 @@ SceneRoots:
   - {fileID: 710623179}
   - {fileID: 1344714018}
   - {fileID: 1862880383}
-  - {fileID: 1604985437}
   - {fileID: 731467761}
   - {fileID: 9152437700038651066}
   - {fileID: 1936985524}
