@@ -8,7 +8,7 @@ public class PutterPhysics : MonoBehaviour
     public GameObject ball, putterHead, putterGhost;
     [SerializeField] ClubLength currentClubLength;
 
-    public void GhostHead()
+    public void Disable_GhostHead()
     {
         //DebugLog
         Debug.Log("Set GhostHead");
@@ -21,7 +21,7 @@ public class PutterPhysics : MonoBehaviour
         currentClubLength.boolDetectHeight = false;
     }
     
-    public void PhysicsHead()
+    public void Enable_PhysicsHead()
     {
         //DebugLog
         Debug.Log("Removed GhostHead");
@@ -32,5 +32,13 @@ public class PutterPhysics : MonoBehaviour
 
         //Enables Height detection and length extention
         currentClubLength.boolDetectHeight = true;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("ball"))
+        {
+
+        }
     }
 }
