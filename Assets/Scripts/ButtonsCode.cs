@@ -7,7 +7,8 @@ public class ButtonsCode : MonoBehaviour
 {
     public void LoadBowling()
     {
-        SceneManager.LoadScene("Bowling");
+        SceneManager.LoadScene(1);
+        Debug.Log("Clicked Bowling");
     }
 }
     
