@@ -3,41 +3,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PutterPhysics : MonoBehaviour
+public class ClubPhysics : MonoBehaviour
 {
-    public GameObject ball, putterHead, putterGhost;
+    public GameObject ball, clubPhysicsHead, clubGhostHead;
     [SerializeField] ClubLength currentClubLength;
 
-    public void Disable_GhostHead()
+    public void Disable_Physics()
     {
         //DebugLog
         Debug.Log("Set GhostHead");
 
         //Changes clubs head to ghost
-        putterHead.SetActive(false);
-        putterGhost.SetActive(true);
+        clubPhysicsHead.SetActive(false);
+        clubGhostHead.SetActive(true);
 
         //Disables Height detection and length extention
         currentClubLength.boolDetectHeight = false;
     }
     
-    public void Enable_PhysicsHead()
+    public void Enable_Physics()
     {
         //DebugLog
         Debug.Log("Removed GhostHead");
 
         //Changes clubs head to physical
-        putterHead.SetActive(true);
-        putterGhost.SetActive(false);
+        clubPhysicsHead.SetActive(true);
+        clubGhostHead.SetActive(false);
 
         //Enables Height detection and length extention
-        currentClubLength.boolDetectHeight = true;
+        //currentClubLength.boolDetectHeight = true;
+    }
+
+    void Physics_Collision()
+    {
+
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("ball"))
+        if (collision.gameObject.tag == "ball")
         {
+            Disable_Physics();
 
         }
     }
