@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.11884108, g: 0.18339348, b: 0.32976314, a: 1}
+  m_IndirectSpecularColor: {r: 0.1188316, g: 0.18396643, b: 0.33035186, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -38640,7 +38640,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clubs: {fileID: 9155147070728027980}
+  speed: 0
   detectingMovement: 1
+  medianSpeedRange: 1
+  stopSpeedRange: 0.05
+  fastSpeedFrictionMultiplier: 0.9995
+  slowSpeedFrictionMultiplier: 0.95
 --- !u!4 &9155147070728027979
 Transform:
   m_ObjectHideFlags: 0
@@ -38673,10 +38678,13 @@ MonoBehaviour:
   clubGhostHead: {fileID: 9043839975995899913}
   currentClubLength: {fileID: 5599555330996575549}
   clubWeight: 0.315
-  ballWeight: 0.04593
-  clubPower: 10
+  clubPower: 1
   clubChip: 0
   clubSpin: 0
+  pastX: 0
+  pastY: 0
+  pastZ: 0
+  clubVelocity: {x: 0, y: 0, z: 0}
 --- !u!54 &9155147070728027981
 Rigidbody:
   m_ObjectHideFlags: 0

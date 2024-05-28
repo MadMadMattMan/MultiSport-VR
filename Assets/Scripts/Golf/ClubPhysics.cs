@@ -40,7 +40,7 @@ public class ClubPhysics : MonoBehaviour
     float contactTime = 0.000256f;
     [SerializeField] float clubPower, clubChip, clubSpin;
 
-    [SerializeField] float pastVX, pastVY, pastVZ;
+    [SerializeField] float pastX, pastY, pastZ;
 
     [SerializeField] Vector3 clubVelocity;
 
@@ -55,25 +55,26 @@ public class ClubPhysics : MonoBehaviour
         Vector3 deltaDir = new Vector3();
 
         //v = d/t
+        deltaDir.x = ((tf.position.x - pastX) * Time.deltaTime) * clubPower;
+        deltaDir.y = ((tf.position.y - pastY) * Time.deltaTime) * clubChip;
+        deltaDir.z = ((tf.position.z - pastZ) * Time.deltaTime) * clubPower;
 
-        deltaDir.x = (tf.position.x - pastVX);
-        deltaDir.y = (tf.position.y - pastVY);
-        deltaDir.z = (tf.position.z - pastVZ);
+        pastX = tf.position.x;
+        pastY = tf.position.y;
+        pastZ = tf.position.z;
 
         return deltaDir;
     }
 
     void Physics_Calculation(Rigidbody Ball)
     {
-        Vector3 exitVelocityDir = clubVelocity;
-
         //p = mv
         float clubMomentum = clubVelocity.magnitude * clubWeight;
         //Vector3 angularVelocity = Vector3.zero;
 
 
         //F = p/t (* power for adjustments)
-        Vector3 ballForce = clubVelocity.normalized * (clubMomentum / contactTime) * clubPower;
+        Vector3 ballForce = clubVelocity.normalized * (clubMomentum / contactTime);
         Ball.AddForce(ballForce, ForceMode.Impulse);
         //Ball.AddRelativeTorque(angularVelocity.normalized * clubSpin, ForceMode.Impulse);
 
