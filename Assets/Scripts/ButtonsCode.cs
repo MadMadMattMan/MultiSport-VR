@@ -31,6 +31,16 @@ public class ButtonsCode : MonoBehaviour
         SceneManager.LoadScene(5);
         Debug.Log("Clicked Golf Controls");
     }
+    public void LoadBowlingControls()
+    {
+        SceneManager.LoadScene(6);
+        Debug.Log("Clicked Bowling Controls");
+    }
+    public void LoadClayShootingControls()
+    {
+        SceneManager.LoadScene(7);
+        Debug.Log("Clicked ClayShooting Controls");
+    }
     public void LoadQuit()
     {
        Application.Quit();
