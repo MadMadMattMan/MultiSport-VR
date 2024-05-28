@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.1188316, g: 0.18396643, b: 0.33035186, a: 1}
+  m_IndirectSpecularColor: {r: 0.11884108, g: 0.18339348, b: 0.32976314, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -38290,6 +38290,7 @@ GameObject:
   - component: {fileID: 5718040866248285423}
   - component: {fileID: 9152437700038651068}
   - component: {fileID: 9152437700038651067}
+  - component: {fileID: 9152437700038651069}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -38623,9 +38624,23 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &9152437700038651069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6800398302965785855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efd630bf5f92214fb34d44d6ba17b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clubs: {fileID: 9155147070728027980}
+  detectingMovement: 1
 --- !u!4 &9155147070728027979
 Transform:
   m_ObjectHideFlags: 0
@@ -38657,6 +38672,11 @@ MonoBehaviour:
   clubPhysicsHead: {fileID: 6193988889374381120}
   clubGhostHead: {fileID: 9043839975995899913}
   currentClubLength: {fileID: 5599555330996575549}
+  clubWeight: 0.315
+  ballWeight: 0.04593
+  clubPower: 10
+  clubChip: 0
+  clubSpin: 0
 --- !u!54 &9155147070728027981
 Rigidbody:
   m_ObjectHideFlags: 0

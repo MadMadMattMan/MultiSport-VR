@@ -19,6 +19,7 @@ public class ClubPhysics : MonoBehaviour
 
         //Disables Height detection and length extention
         currentClubLength.boolDetectHeight = false;
+        ball.GetComponent<GolfBall>().detectingMovement = true;
     }
     
     public void Enable_Physics()
@@ -34,16 +35,59 @@ public class ClubPhysics : MonoBehaviour
         //currentClubLength.boolDetectHeight = true;
     }
 
-    void Physics_Collision()
-    {
+    [Header("Physics Caculations")]
+    [SerializeField] float clubWeight = 1;
+    float contactTime = 0.000256f;
+    [SerializeField] float clubPower, clubChip, clubSpin;
 
+    [SerializeField] float pastVX, pastVY, pastVZ;
+
+    [SerializeField] Vector3 clubVelocity;
+
+    private void Update()
+    {
+        clubVelocity = Velocity_Calculation();
+    }
+
+    Vector3 Velocity_Calculation()
+    {
+        Transform tf = clubPhysicsHead.GetComponent<Transform>();
+        Vector3 deltaDir = new Vector3();
+
+        //v = d/t
+
+        deltaDir.x = (tf.position.x - pastVX);
+        deltaDir.y = (tf.position.y - pastVY);
+        deltaDir.z = (tf.position.z - pastVZ);
+
+        return deltaDir;
+    }
+
+    void Physics_Calculation(Rigidbody Ball)
+    {
+        Vector3 exitVelocityDir = clubVelocity;
+
+        //p = mv
+        float clubMomentum = clubVelocity.magnitude * clubWeight;
+        //Vector3 angularVelocity = Vector3.zero;
+
+
+        //F = p/t (* power for adjustments)
+        Vector3 ballForce = clubVelocity.normalized * (clubMomentum / contactTime) * clubPower;
+        Ball.AddForce(ballForce, ForceMode.Impulse);
+        //Ball.AddRelativeTorque(angularVelocity.normalized * clubSpin, ForceMode.Impulse);
+
+        Debug.Log("ClubSpeed = " + clubVelocity);
+        Debug.Log("ClubSpeedMag = " + clubVelocity.magnitude);
+        Debug.Log("Force = " + ballForce);
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "ball")
+        if (collision.gameObject.tag == "Ball")
         {
             Disable_Physics();
+            Physics_Calculation(ball.GetComponent<Rigidbody>());
 
         }
     }
