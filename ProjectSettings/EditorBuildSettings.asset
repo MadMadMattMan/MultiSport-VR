@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ClayShooting.unity
     guid: e7fb695bb510b3b4c866d298b974e5a8
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: e14926c94eb321446a7f5636fae59129
+  - enabled: 1
+    path: Assets/Scenes/Tutorial Scenes/Golf Controls.unity
+    guid: 85626f9b334da16498178784a7f29106
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ad730101a67c32d4184925884f7d4e30, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ae2772d164549d34598b4607b3a8d2a5, type: 2}
