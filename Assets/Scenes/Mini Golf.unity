@@ -38291,6 +38291,7 @@ GameObject:
   - component: {fileID: 9152437700038651068}
   - component: {fileID: 9152437700038651067}
   - component: {fileID: 9152437700038651069}
+  - component: {fileID: 9152437700038651070}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -38608,7 +38609,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6800398302965785855}
   serializedVersion: 4
-  m_Mass: 0.1
+  m_Mass: 0.0459
   m_Drag: 0.1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -38641,11 +38642,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clubs: {fileID: 9155147070728027980}
   speed: 0
+  timeAfterHit: 0
   detectingMovement: 1
-  medianSpeedRange: 1
-  stopSpeedRange: 0.05
+  medianSpeedRange: 2
+  stopSpeedRange: 0.1
   fastSpeedFrictionMultiplier: 0.9995
   slowSpeedFrictionMultiplier: 0.95
+  frictionConstant: 0.25
+  delay: 1
+--- !u!75 &9152437700038651070
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6800398302965785855}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!4 &9155147070728027979
 Transform:
   m_ObjectHideFlags: 0
