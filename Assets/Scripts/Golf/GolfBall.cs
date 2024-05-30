@@ -6,7 +6,7 @@ public class GolfBall : MonoBehaviour
 {
     [SerializeField] ClubPhysics clubs;
     Rigidbody rb;
-    [SerializeField] float speed;
+    [SerializeField] float speed, timeAfterHit;
 
     public bool detectingMovement;
 
@@ -19,6 +19,7 @@ public class GolfBall : MonoBehaviour
     {
         Detect_Speed();
         speed = rb.velocity.magnitude;
+        timeAfterHit += Time.deltaTime;
     }
 
     void Detect_Speed()
@@ -36,12 +37,30 @@ public class GolfBall : MonoBehaviour
 
     [SerializeField] float medianSpeedRange, stopSpeedRange;
     [SerializeField] float fastSpeedFrictionMultiplier, slowSpeedFrictionMultiplier;
+    public float frictionConstant, delay;
 
     void Friction_Force()
     {
-        if (rb.velocity.magnitude < stopSpeedRange)
+        if (timeAfterHit > delay)
         {
-            rb.velocity = Vector3.zero;
-        }        
+            if (speed < stopSpeedRange)
+            {
+                rb.velocity = Vector3.zero;
+            }
+            else if (speed < medianSpeedRange)
+            {
+                rb.velocity *= 0.5f;
+            }
+            else
+            {
+                //F = uN
+                rb.AddRelativeForce(-rb.velocity.normalized * (frictionConstant * (9.81f * rb.mass)));
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        timeAfterHit = 0;
     }
 }
