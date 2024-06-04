@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ButtonsCode : MonoBehaviour
 {
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
+        Debug.Log("Clicked Menu");
+    }
     public void LoadBowling()
     {
         SceneManager.LoadScene(1);
