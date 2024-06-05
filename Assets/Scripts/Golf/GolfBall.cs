@@ -6,7 +6,7 @@ public class GolfBall : MonoBehaviour
 {
     [SerializeField] ClubPhysics currentClub;
     Rigidbody rb;
-    [SerializeField] float speed, timeAfterHit;
+    public float speed;
 
     public bool detectingMovement;
 
@@ -33,12 +33,11 @@ public class GolfBall : MonoBehaviour
         //else, if set to detect movement (and ball is moving), run friction calculations
         else if (detectingMovement)
         {
-            Friction_Force();
+            //Friction_Force();
         }
     }
 
-    [SerializeField] float frictionChangeSpeed, hitDelay;;
-    [SerializeField] float fastSpeedFrictionMultiplier, slowSpeedFrictionMultiplier;
+    [SerializeField] float frictionChangeSpeed = 1f;
     public float staticFrictionConstant = 0.6f; //Default = Rubber on nylon
     public float kineticFrictionConstant = 0.5f; //Default = Rubber on nylon
     public float gravityAcceleration = 9.81f; //Default = Earth gravity
@@ -48,29 +47,28 @@ public class GolfBall : MonoBehaviour
         //Friction force value (F = uN) where N = normal force (= to gravity force), Gravity force = mg
         //Force of friction {As Vector} = Vector3 direction {Normalized} * Friction force 
 
+        //Store horizontal movement direction as a vector for applying a force
+        Vector3 currentHorizontalDir = new Vector3(rb.velocity.normalized.x, 0, rb.velocity.normalized.x);
+
         //If ball is moving slow enough, run static friction calculation
         if (speed < frictionChangeSpeed)
         {
-            Vector3 currentDir = rb.velocity.normalized;
-
             //Force = (Opposite of movement dircection) * (u {static} * N {mass * gravity} 
             ///As static friction is scaled by movement speed {which is graphed by 1/speed to create exponentally more friction as speed decreases,
             float staticFrictionScalar = (1 / rb.velocity.magnitude);
 
-            rb.AddRelativeForce(-rb.velocity.normalized * (staticFrictionConstant * (gravityAcceleration * rb.mass)) * staticFrictionScalar);
+            rb.AddForce(-currentHorizontalDir * (staticFrictionConstant * (gravityAcceleration * rb.mass)) * staticFrictionScalar);
 
-
-
-            //To prevent ball rolling backward, if trajectory direction in all 3 axis is not same to actual direction (ie movement path has changed), stop the ball
-            if (rb.velocity.normalized.x != currentDir.x || rb.velocity.normalized.y != currentDir.y || rb.velocity.normalized.z != currentDir.z)
+            //To prevent ball rolling backward, if trajectory direction in horizontal movement axis is not same to actual direction (ie movement path has changed), stop the ball
+            if (rb.velocity.normalized.x != currentHorizontalDir.x || rb.velocity.normalized.z != currentHorizontalDir.z)
             {
                 rb.velocity = Vector3.zero;
             }
         }
-        else
+        else //If ball is moving fast, run kinetic friction calculation
         {
             //Force = (Opposite of movement dircection) * (u {kinetic} * N {mass * gravity}
-            rb.AddRelativeForce(-rb.velocity.normalized * (kineticFrictionConstant * (gravityAcceleration * rb.mass)));
+            rb.AddForce(-currentHorizontalDir * (kineticFrictionConstant * (gravityAcceleration * rb.mass)));
         }
     }
 }

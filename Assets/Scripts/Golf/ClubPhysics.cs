@@ -5,8 +5,19 @@ using UnityEngine;
 
 public class ClubPhysics : MonoBehaviour
 {
-    public GameObject ball, clubPhysicsHead, clubGhostHead;
+    [SerializeField] GameObject ball, clubPhysicsHead, clubGhostHead;
     [SerializeField] ClubLength currentClubLength;
+
+    private void Start()
+    {
+        currentClubLength = GetComponentInParent<ClubLength>();
+
+        clubPhysicsHead = gameObject;
+        clubGhostHead = GameObject.FindGameObjectWithTag("Ghost Head");
+        ball = GameObject.FindGameObjectWithTag("Ball");    
+
+        clubGhostHead.SetActive(false);
+    }
 
     public void Disable_Physics()
     {
@@ -18,7 +29,7 @@ public class ClubPhysics : MonoBehaviour
         clubGhostHead.SetActive(true);
 
         //Disables Height detection and length extention
-        currentClubLength.boolDetectHeight = false;
+        //currentClubLength.boolDetectHeight = false;
         ball.GetComponent<GolfBall>().detectingMovement = true;
     }
     
@@ -36,7 +47,7 @@ public class ClubPhysics : MonoBehaviour
     }
 
     [Header("Physics Caculations")]
-    [SerializeField] float clubWeight = 1;
+    float clubMass = 0.33f;
     float contactTime = 0.000256f;
     [SerializeField] float clubPower, clubChip, clubSpin;
 
@@ -44,7 +55,7 @@ public class ClubPhysics : MonoBehaviour
 
     [SerializeField] Vector3 clubVelocity;
 
-    private void Update()
+    private void FixedUpdate()
     {
         clubVelocity = Velocity_Calculation();
     }
@@ -63,33 +74,52 @@ public class ClubPhysics : MonoBehaviour
         pastY = tf.position.y;
         pastZ = tf.position.z;
 
+        currentSpeed = deltaDir.magnitude;
+
         return deltaDir;
     }
 
+    [SerializeField] float minCollisionSpeed = 0.5f;
+    [SerializeField] float currentSpeed;
+
     void Physics_Calculation(Rigidbody Ball)
     {
+        Vector3 collisionVelocity = Velocity_Calculation();
+
         //p = mv
-        float clubMomentum = clubVelocity.magnitude * clubWeight;
+        float clubMomentum = clubMass * collisionVelocity.magnitude;
+
+        if (collisionVelocity.magnitude < minCollisionSpeed)
+        {
+            clubMomentum = clubMass * minCollisionSpeed;
+        }
+
+        Vector3 clubAimDirection = transform.forward;
         //Vector3 angularVelocity = Vector3.zero;
 
 
         //F = p/t (* power for adjustments)
+        //Directional force = direction vector * Force scalar (p/t)
         Vector3 ballForce = clubVelocity.normalized * (clubMomentum / contactTime);
-        Ball.AddForce(ballForce, ForceMode.Impulse);
-        //Ball.AddRelativeTorque(angularVelocity.normalized * clubSpin, ForceMode.Impulse);
 
-        Debug.Log("ClubSpeed = " + clubVelocity);
+        if (Ball.gameObject.GetComponent<GolfBall>().speed == 0)
+        {
+            //Add the force to the ball
+            Ball.AddForce(ballForce, ForceMode.Impulse);
+            //Ball.AddRelativeTorque(angularVelocity.normalized * clubSpin, ForceMode.Impulse);
+        }
+
         Debug.Log("ClubSpeedMag = " + clubVelocity.magnitude);
-        Debug.Log("Force = " + ballForce);
+        Debug.Log("CollisionVelocityExit = " + Ball.velocity);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Ball")
         {
             Disable_Physics();
             Physics_Calculation(ball.GetComponent<Rigidbody>());
-
+            Debug.Log("Collided with Ball");
         }
     }
 }

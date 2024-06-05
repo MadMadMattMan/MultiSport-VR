@@ -10,6 +10,11 @@ public class ClubLength : MonoBehaviour
     float pastDistance;
     float range = 0.7171f;
 
+    private void Start()
+    {
+        baseTransform = transform;
+    }
+
     private void LateUpdate()
     {
         if (boolDetectHeight)
