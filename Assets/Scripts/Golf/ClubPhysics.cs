@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using Oculus.Interaction.DebugTree;
 using System.Collections;
 using System.Collections.Generic;
@@ -82,43 +83,44 @@ public class ClubPhysics : MonoBehaviour
     [SerializeField] float minCollisionSpeed = 0.5f;
     [SerializeField] float currentSpeed;
 
-    void Physics_Calculation(Rigidbody Ball)
+    void Physics_Calculation(Rigidbody Ball, Collision collision)
     {
         Vector3 collisionVelocity = Velocity_Calculation();
 
         //p = mv
         float clubMomentum = clubMass * collisionVelocity.magnitude;
 
-        if (collisionVelocity.magnitude < minCollisionSpeed)
-        {
+        //if (collisionVelocity.magnitude < minCollisionSpeed)
+        //{
             clubMomentum = clubMass * minCollisionSpeed;
-        }
+        //}
 
-        Vector3 clubAimDirection = transform.forward;
+        //Vector3 clubAimDirection = transform.forward;
         //Vector3 angularVelocity = Vector3.zero;
 
 
         //F = p/t (* power for adjustments)
         //Directional force = direction vector * Force scalar (p/t)
-        Vector3 ballForce = clubVelocity.normalized * (clubMomentum / contactTime);
+        //Vector3 ballForce = clubVelocity.normalized * (clubMomentum / contactTime);
 
         if (Ball.gameObject.GetComponent<GolfBall>().speed == 0)
         {
             //Add the force to the ball
-            Ball.AddForce(ballForce, ForceMode.Impulse);
+            //Ball.AddForce(ballForce, ForceMode.Impulse);
             //Ball.AddRelativeTorque(angularVelocity.normalized * clubSpin, ForceMode.Impulse);
+            Ball.velocity = Vector3.Reflect(collisionVelocity, collision.contacts[0].normal);
         }
 
         Debug.Log("ClubSpeedMag = " + clubVelocity.magnitude);
         Debug.Log("CollisionVelocityExit = " + Ball.velocity);
     }
 
-    void OnTriggerEnter(Collider collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ball")
         {
             Disable_Physics();
-            Physics_Calculation(ball.GetComponent<Rigidbody>());
+            Physics_Calculation(ball.GetComponent<Rigidbody>(), collision);
             Debug.Log("Collided with Ball");
         }
     }
