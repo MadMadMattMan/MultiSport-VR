@@ -90,25 +90,15 @@ public class ClubPhysics : MonoBehaviour
         //p = mv
         float clubMomentum = clubMass * collisionVelocity.magnitude;
 
-        //if (collisionVelocity.magnitude < minCollisionSpeed)
-        //{
-            clubMomentum = clubMass * minCollisionSpeed;
-        //}
-
-        //Vector3 clubAimDirection = transform.forward;
-        //Vector3 angularVelocity = Vector3.zero;
-
-
         //F = p/t (* power for adjustments)
         //Directional force = direction vector * Force scalar (p/t)
-        //Vector3 ballForce = clubVelocity.normalized * (clubMomentum / contactTime);
+        Vector3 ballForce = clubVelocity.normalized * (clubMomentum / contactTime);
 
-        if (Ball.gameObject.GetComponent<GolfBall>().speed == 0)
+        if (Ball.gameObject.GetComponent<GolfBall>().speed <= minCollisionSpeed)
         {
             //Add the force to the ball
-            //Ball.AddForce(ballForce, ForceMode.Impulse);
-            //Ball.AddRelativeTorque(angularVelocity.normalized * clubSpin, ForceMode.Impulse);
-            Ball.velocity = Vector3.Reflect(collisionVelocity, collision.contacts[0].normal);
+            Ball.velocity = Vector3.Reflect(Ball.velocity, collision.contacts[0].normal).normalized * clubVelocity.magnitude * clubPower;
+
         }
 
         Debug.Log("ClubSpeedMag = " + clubVelocity.magnitude);
