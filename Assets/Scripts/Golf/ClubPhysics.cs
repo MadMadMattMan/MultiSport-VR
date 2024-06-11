@@ -71,9 +71,9 @@ public class ClubPhysics : MonoBehaviour
         deltaDir.y = ((initialPos.y - pastY) / Time.deltaTime) * clubChip;
         deltaDir.z = ((initialPos.z - pastZ) / Time.deltaTime) * clubPower;
 
-        pastX = tf.position.x;
-        pastY = tf.position.y;
-        pastZ = tf.position.z;
+        pastX = initialPos.x;
+        pastY = initialPos.y;
+        pastZ = initialPos.z;
 
         currentSpeed = deltaDir.magnitude;
 
@@ -110,14 +110,11 @@ public class ClubPhysics : MonoBehaviour
         if (collision.gameObject.tag == "Ball")
         {
             Disable_Physics();
-<<<<<<< Updated upstream
             Physics_Calculation(ball.GetComponent<Rigidbody>(), collision);
-=======
-            //Physics_Calculation(ball.GetComponent<Rigidbody>());\
+            //Physics_Calculation(ball.GetComponent<Rigidbody>());
             ball.GetComponent<Rigidbody>().velocity = clubVelocity;
->>>>>>> Stashed changes
             Debug.Log("Collided with Ball");
-            Debug.Log("Gave ball a velocity with speed " + clubVelocity.magnitude)
+            Debug.Log("Gave ball a velocity with speed " + clubVelocity.magnitude);
         }
     }
 }
