@@ -38652,7 +38652,7 @@ MonoBehaviour:
   clubPhysicsHead: {fileID: 6673867809451906524}
   clubGhostHead: {fileID: 586033310059808243}
   currentClubLength: {fileID: 3323904182831450772}
-  clubPower: 1.25
+  clubPower: 0.8
   clubChip: 0
   clubSpin: 0
   pastX: 0

@@ -48,9 +48,7 @@ public class ClubPhysics : MonoBehaviour
     }
 
     [Header("Physics Caculations")]
-    float clubMass = 0.33f;
-    float contactTime = 0.000256f;
-    [SerializeField] float clubPower, clubChip, clubSpin;
+    [SerializeField] float clubPower, clubChip;
 
     [SerializeField] float pastX, pastY, pastZ;
 
@@ -64,55 +62,28 @@ public class ClubPhysics : MonoBehaviour
     Vector3 Velocity_Calculation()
     {
         Vector3 initialPos = clubPhysicsHead.GetComponent<Transform>().position;
-        Vector3 deltaDir = new Vector3();
+        Vector3 newVelocity;
 
         //v = d/t
-        deltaDir.x = ((initialPos.x - pastX) / Time.deltaTime) * clubPower;
-        deltaDir.y = ((initialPos.y - pastY) / Time.deltaTime) * clubChip;
-        deltaDir.z = ((initialPos.z - pastZ) / Time.deltaTime) * clubPower;
+        newVelocity.x = (initialPos.x - pastX) / Time.deltaTime;
+        newVelocity.y = ((initialPos.y - pastY) / Time.deltaTime) + clubChip;
+        newVelocity.z = (initialPos.z - pastZ) / Time.deltaTime;
 
         pastX = initialPos.x;
         pastY = initialPos.y;
         pastZ = initialPos.z;
 
-        currentSpeed = deltaDir.magnitude;
-
-        return deltaDir;
+        return newVelocity.normalized;
     }
 
-    [SerializeField] float minCollisionSpeed = 0.5f;
-    [SerializeField] float currentSpeed;
-
-    void Physics_Calculation(Rigidbody Ball, Collision collision)
-    {
-        Vector3 collisionVelocity = Velocity_Calculation();
-
-        //p = mv
-        float clubMomentum = clubMass * collisionVelocity.magnitude;
-
-        //F = p/t (* power for adjustments)
-        //Directional force = direction vector * Force scalar (p/t)
-        Vector3 ballForce = clubVelocity.normalized * (clubMomentum / contactTime);
-
-        if (Ball.gameObject.GetComponent<GolfBall>().speed <= minCollisionSpeed)
-        {
-            //Add the force to the ball
-            Ball.velocity = Vector3.Reflect(Ball.velocity, collision.contacts[0].normal).normalized * clubVelocity.magnitude * clubPower;
-
-        }
-
-        Debug.Log("ClubSpeedMag = " + clubVelocity.magnitude);
-        Debug.Log("CollisionVelocityExit = " + Ball.velocity);
-    }
-
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Ball")
         {
             Disable_Physics();
-            Physics_Calculation(ball.GetComponent<Rigidbody>(), collision);
+            //Physics_Calculation(ball.GetComponent<Rigidbody>(), collision);
             //Physics_Calculation(ball.GetComponent<Rigidbody>());
-            ball.GetComponent<Rigidbody>().velocity = clubVelocity;
+            ball.GetComponent<Rigidbody>().velocity = clubVelocity * clubPower;
             Debug.Log("Collided with Ball");
             Debug.Log("Gave ball a velocity with speed " + clubVelocity.magnitude);
         }
