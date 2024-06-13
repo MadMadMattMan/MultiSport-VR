@@ -95,16 +95,24 @@ public class ClubPhysics : MonoBehaviour
 
     [SerializeField] AnimationCurve hapticCurve;
 
+
+
+
+
+
+
     void Run_Haptics()
     {
+        OVRInput.Controller activeController = OVRInput.GetActiveController();
+
         float strength = hapticCurve.Evaluate(clubVelocity.magnitude);
-        //StartCoroutine(HapticsRoutine(strength, _activeController));
+        StartCoroutine(HapticsRoutine(strength, activeController));
     }
 
-    private IEnumerator HapticsRoutine(float pitch, OVRInput.Controller controller)
+    IEnumerator HapticsRoutine(float pitch, OVRInput.Controller controller)
     {
         OVRInput.SetControllerVibration(pitch * 0.5f, pitch * 0.2f, controller);
-        //yield return _hapticsWait;
+        yield return new WaitForSeconds(0.1f);
         OVRInput.SetControllerVibration(0, 0, controller);
     }
 }
