@@ -4,25 +4,34 @@ using UnityEngine;
 using Oculus.Interaction;
 public class ShootingCode : MonoBehaviour
 {
-    public GameObject palletprefab;
+    public GameObject PalletPrefab;
 
-    public Transform PalletSpawn;
+    public Transform PalletSpawnpoint;
 
-    public float palletspeed = 30;
+    public float PalletSpeed = 30;
 
-    public float bullettime = 5;
-
+    public bool cooldown = false;
+    [SerializeField] float cooldowntime;
 
     void Update()
     {
         float triggerPress = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
         float triggerPress2 = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger);
 
-        if (triggerPress >= 0.75f)
+        if (triggerPress >= 0.75f | triggerPress2 >= 0.75f && !cooldown)
         {
-            //Shoot gun
+           var pallet = Instantiate(PalletPrefab, PalletSpawnpoint.position, PalletSpawnpoint.rotation);
+           pallet.GetComponent<Rigidbody>().velocity = -PalletSpawnpoint.forward.normalized * PalletSpeed;
+            cooldown = true;
+            StartCoroutine(waitingperoid());
         }
+      
     }
-    //  private IEnumerator DestroyPalletAfterTime(GameObject pallet, float delay)
+
+    IEnumerator waitingperoid()
+    {
+       yield return new WaitForSeconds((cooldowntime));
+        cooldown = false;
+    }
 
 }

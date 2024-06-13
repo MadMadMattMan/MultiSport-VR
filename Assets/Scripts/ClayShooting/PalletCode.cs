@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class PalletCode : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public float PalletTime = 5;
+
+    void Awake()
     {
-       Destroy(gameObject);
+        Destroy(gameObject,PalletTime);
+    }
+   void OnTriggerEnter(Collider collision)
+    {
+      // Destroy(collision.gameObject);
+        //Destroy(gameObject);
     }
 }
+    
