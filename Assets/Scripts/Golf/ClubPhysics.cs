@@ -1,3 +1,4 @@
+using Oculus.Haptics;
 using Oculus.Interaction;
 using Oculus.Interaction.DebugTree;
 using System.Collections;
@@ -81,11 +82,29 @@ public class ClubPhysics : MonoBehaviour
         if (collision.gameObject.tag == "Ball")
         {
             Disable_Physics();
+            Run_Haptics();
             //Physics_Calculation(ball.GetComponent<Rigidbody>(), collision);
             //Physics_Calculation(ball.GetComponent<Rigidbody>());
             ball.GetComponent<Rigidbody>().velocity = clubVelocity * clubPower;
             Debug.Log("Collided with Ball");
             Debug.Log("Gave ball a velocity with speed " + clubVelocity.magnitude);
+
+            Run_Haptics();
         }
+    }
+
+    [SerializeField] AnimationCurve hapticCurve;
+
+    void Run_Haptics()
+    {
+        float strength = hapticCurve.Evaluate(clubVelocity.magnitude);
+        //StartCoroutine(HapticsRoutine(strength, _activeController));
+    }
+
+    private IEnumerator HapticsRoutine(float pitch, OVRInput.Controller controller)
+    {
+        OVRInput.SetControllerVibration(pitch * 0.5f, pitch * 0.2f, controller);
+        //yield return _hapticsWait;
+        OVRInput.SetControllerVibration(0, 0, controller);
     }
 }
