@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.11884108, g: 0.18339348, b: 0.32976314, a: 1}
+  m_IndirectSpecularColor: {r: 0.1188316, g: 0.18396643, b: 0.33035186, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11371,7 +11371,6 @@ GameObject:
   - component: {fileID: 714623096}
   - component: {fileID: 714623095}
   - component: {fileID: 714623094}
-  - component: {fileID: 714623093}
   m_Layer: 0
   m_Name: '[BuildingBlock] HandGrab'
   m_TagString: Untagged
@@ -11394,21 +11393,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3323904182831450768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &714623093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714623091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bedaac29a943f844a7074b53c8bdf9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pointable: {fileID: 714623096}
-  _rigidbody: {fileID: 3323904182831450770}
-  _scaleMassWithSize: 1
 --- !u!114 &714623094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11431,7 +11415,7 @@ MonoBehaviour:
   _useClosestPointAsGrabSource: 0
   _releaseDistance: 0
   _resetGrabOnGrabsUpdated: 1
-  _physicsGrabbable: {fileID: 714623093}
+  _physicsGrabbable: {fileID: 0}
 --- !u!114 &714623095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11450,7 +11434,7 @@ MonoBehaviour:
   _data: {fileID: 0}
   _pointableElement: {fileID: 714623096}
   _rigidbody: {fileID: 3323904182831450770}
-  _physicsGrabbable: {fileID: 714623093}
+  _physicsGrabbable: {fileID: 0}
   _resetGrabOnGrabsUpdated: 1
   _scoringModifier:
     _positionRotationWeight: 0.5
