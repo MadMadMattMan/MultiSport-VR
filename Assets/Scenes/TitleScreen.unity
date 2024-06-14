@@ -2006,6 +2006,9 @@ MonoBehaviour:
   blockId: 5817f7c0-f2a5-45f9-a5ca-64264e0166e8
   instanceId: 2aa5c9bd-0eae-49d1-93b4-bb878cb1e9cf
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &130599743
 GameObject:
   m_ObjectHideFlags: 0
@@ -3327,6 +3330,9 @@ MonoBehaviour:
   blockId: 6b67162c-2460-4766-a931-980388647573
   instanceId: c5eedb38-c07b-406e-bc07-8aa30c46ef5d
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &170193084
 GameObject:
   m_ObjectHideFlags: 0
@@ -7252,6 +7258,9 @@ MonoBehaviour:
   blockId: bc3f7b21-a55c-4cf7-b9c6-78d4341573a4
   instanceId: 0e7f7ab5-aa10-4e52-ba9c-ea14d0bf0227
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &316454473
 GameObject:
   m_ObjectHideFlags: 0
@@ -8017,6 +8026,9 @@ MonoBehaviour:
   blockId: 8b26b298-7bf4-490e-b245-a039c0184303
   instanceId: a632778b-ecac-46d0-b2a9-ed714a339ca3
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &350115181
 GameObject:
   m_ObjectHideFlags: 0
@@ -9853,6 +9865,9 @@ MonoBehaviour:
   blockId: 6b67162c-2460-4766-a931-980388647573
   instanceId: c0278ec5-9cc5-4021-b7c8-72a280f72941
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &421130244
 GameObject:
   m_ObjectHideFlags: 0
@@ -11060,6 +11075,9 @@ MonoBehaviour:
   blockId: bc3f7b21-a55c-4cf7-b9c6-78d4341573a4
   instanceId: 07b18a60-4619-4704-9733-d2733bfdb227
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &480839269
 GameObject:
   m_ObjectHideFlags: 0
@@ -13946,6 +13964,9 @@ MonoBehaviour:
   blockId: 5d47ae98-1ed8-4753-ac7f-c41012479e3d
   instanceId: 6143d6dc-257a-4198-bb68-cce3cffad22a
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &595982946
 GameObject:
   m_ObjectHideFlags: 0
@@ -15073,6 +15094,9 @@ MonoBehaviour:
   blockId: 4187448e-9c2a-4021-ad92-fb65840f2721
   instanceId: aaa18dd4-caf6-41d2-a5bd-fb24b903ac6b
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &641944981
 GameObject:
   m_ObjectHideFlags: 0
@@ -18284,6 +18308,9 @@ MonoBehaviour:
   blockId: 0393ca30-f2a9-4865-a40f-f9a68d01c3a9
   instanceId: f96cfeff-e34c-4e17-be14-026175993988
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &782041481
 GameObject:
   m_ObjectHideFlags: 0
@@ -18851,6 +18878,9 @@ MonoBehaviour:
   blockId: 76a013d1-7c16-4a60-9c1b-79b3691c0438
   instanceId: 8645f9d9-3250-4904-8965-be42f8d65bee
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!4 &802028890
 Transform:
   m_ObjectHideFlags: 0
@@ -21901,6 +21931,9 @@ MonoBehaviour:
   blockId: 81f55626-5fad-45e9-a1df-184f330da7ba
   instanceId: e8a1622d-ee02-49fa-91f4-2f53ebbcd2d8
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &951815356
 GameObject:
   m_ObjectHideFlags: 0
@@ -23539,6 +23572,9 @@ MonoBehaviour:
   blockId: 8b26b298-7bf4-490e-b245-a039c0184303
   instanceId: dfa01aa3-fa21-4cf6-88ae-dfaef841aa15
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &1065373815
 GameObject:
   m_ObjectHideFlags: 0
@@ -25261,6 +25297,9 @@ MonoBehaviour:
   blockId: 5d47ae98-1ed8-4753-ac7f-c41012479e3d
   instanceId: bbb97843-cb63-4c38-bdc6-4ee269eed757
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &1157721262
 GameObject:
   m_ObjectHideFlags: 0
@@ -28991,6 +29030,9 @@ MonoBehaviour:
   blockId: 316c5b1d-a5e4-49f2-a663-15fd22dbcba9
   instanceId: feac2907-5cf2-4eaf-86ca-4221a7387a2f
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &1324379800
 GameObject:
   m_ObjectHideFlags: 0
@@ -34241,6 +34283,9 @@ MonoBehaviour:
   blockId: f10154e0-16b2-492f-97d0-6639f69e7df6
   instanceId: 32b5ed33-6f40-4cc3-b063-cdbb297e69bf
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &1576228838
 GameObject:
   m_ObjectHideFlags: 0
@@ -35050,6 +35095,9 @@ MonoBehaviour:
   blockId: 4187448e-9c2a-4021-ad92-fb65840f2721
   instanceId: 134e9774-786d-4640-bdbb-c694ab0ca381
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &1612620865
 GameObject:
   m_ObjectHideFlags: 0
@@ -38380,6 +38428,9 @@ MonoBehaviour:
   blockId: 5817f7c0-f2a5-45f9-a5ca-64264e0166e8
   instanceId: e53580da-0760-4c4f-b56a-7997fbdbcf24
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &1808817507
 GameObject:
   m_ObjectHideFlags: 0
@@ -42304,6 +42355,9 @@ MonoBehaviour:
   blockId: e47682b9-c270-40b1-b16d-90b627a5ce1b
   instanceId: 66c40d14-3018-4189-9fda-58b37b2ea7c5
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!4 &1977012790
 Transform:
   m_ObjectHideFlags: 0
@@ -45802,6 +45856,9 @@ MonoBehaviour:
   blockId: 316c5b1d-a5e4-49f2-a663-15fd22dbcba9
   instanceId: 4e594123-4003-4071-ab42-35fdbf39ffc0
   version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!1 &2147062841
 GameObject:
   m_ObjectHideFlags: 0
