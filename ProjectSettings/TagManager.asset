@@ -7,6 +7,7 @@ TagManager:
   - SamplesInfoPanel
   - Ball
   - Ghost Head
+  - Sand
   layers:
   - Default
   - TransparentFX
