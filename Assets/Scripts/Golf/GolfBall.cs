@@ -27,8 +27,9 @@ public class GolfBall : MonoBehaviour
     void Detect_Speed()
     {
         //If set to detect movement and ball is not moving, disable detect movement and enable club physics
-        if (detectingMovement && rb.velocity.normalized == Vector3.zero)
+        if (detectingMovement && rb.velocity.magnitude <= 0.001f)
         {
+            rb.velocity = Vector3.zero;
             detectingMovement = false;
             currentClub.Enable_Physics();
         }
@@ -39,23 +40,22 @@ public class GolfBall : MonoBehaviour
         }
     }
 
-    [SerializeField] float frictionChangeSpeed = 1f;
-    public float staticFrictionConstant = 0.6f; //Default = Rubber on nylon
-    public float kineticFrictionConstant = 0.5f; //Default = Rubber on nylon
+    public float frictionBaseMultiplier = 100f;
+    public float kineticFrictionConstant = 0.2f; //Default = Rubber on nylon
     public float gravityAcceleration = 9.81f; //Default = Earth gravity
 
-    // Friction Math:
+    // Friction Equations:
     // Friction Force = u * Nomal force
     // Normal Force = mass * gravity
     // Acceleration = Force / mass
-    // Friction Decelleration = u*g
-    // a = v/d
 
     void Friction_Force()
     {
-        float stoppingForce = kineticFrictionConstant * rb.mass * gravityAcceleration;
+        float stoppingForce = kineticFrictionConstant * (rb.mass * gravityAcceleration); //(0.5*1*9.81)
         Vector3 ballBase = transform.position - new Vector3(0, -0.02f, 0);
 
-        rb.AddForceAtPosition(-rb.velocity / stoppingForce, ballBase, ForceMode.Impulse);
+        float frictionMultiplier = Mathf.Pow(-frictionBaseMultiplier, -10 * rb.velocity.magnitude) + 1; //if speed is more than 1, no effect but as speed approches 0, friction multiplier approches 0
+
+        rb.AddForceAtPosition(-rb.velocity / (stoppingForce * frictionMultiplier) , ballBase);
     }
 }

@@ -26,6 +26,12 @@ public class BowlingPins : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //if pin has fallen over
+        if (transform.position.y < -2)
+        {
+            Destroy(gameObject);
+        }
         
     }
 }

@@ -24206,7 +24206,6 @@ GameObject:
   - component: {fileID: 1336603411}
   - component: {fileID: 1336603410}
   - component: {fileID: 1336603409}
-  - component: {fileID: 1336603408}
   m_Layer: 0
   m_Name: Return Machine
   m_TagString: Untagged
@@ -24214,29 +24213,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1336603408
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336603407}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1336603409
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24296,11 +24272,11 @@ Transform:
   m_GameObject: {fileID: 1336603407}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -1.274, y: 0.767, z: 2.004}
+  m_LocalPosition: {x: -1.274, y: 0.767, z: 2.6498997}
   m_LocalScale: {x: 0.81609344, y: 0.81609315, z: 0.81609344}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1861418386}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!1 &1337071569
 GameObject:
@@ -25665,6 +25641,7 @@ MonoBehaviour:
   bowlingManager: {fileID: 0}
   yFallThreshold: -4
   yValue: 0
+  markForDesturction: 0
 --- !u!1 &1395542362
 GameObject:
   m_ObjectHideFlags: 0
@@ -35282,6 +35259,7 @@ Transform:
   - {fileID: 2048345769}
   - {fileID: 1417358542}
   - {fileID: 2051801515}
+  - {fileID: 1336603411}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1862729956
@@ -38691,13 +38669,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048345765}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.70090926, y: -0, z: -0, w: 0.71325046}
+  m_LocalRotation: {x: 0.6883546, y: 0, z: 0, w: 0.72537434}
   m_LocalPosition: {x: -1.52, y: 0.448, z: 1.4436}
   m_LocalScale: {x: 0.1, y: 1.8161632, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1861418386}
-  m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 87, y: 0, z: 0}
 --- !u!1 &2048353396
 GameObject:
   m_ObjectHideFlags: 0
@@ -38754,7 +38732,7 @@ Transform:
   m_GameObject: {fileID: 2051801514}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.299, y: 0.774, z: 2.729}
+  m_LocalPosition: {x: -1.299, y: 0.821, z: 2.691}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39571,13 +39549,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090578399}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.0007326693, y: -0.00024961625, z: -0.0032384188, w: 0.99999446}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1180598307}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.084, y: -0.029, z: -0.371}
 --- !u!114 &2090578401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40922,13 +40900,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144997734}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.70090926, y: -0, z: -0, w: 0.71325046}
+  m_LocalRotation: {x: 0.6883546, y: 0, z: 0, w: 0.72537434}
   m_LocalPosition: {x: -1.14, y: 0.448, z: 1.4436}
   m_LocalScale: {x: 0.1, y: 1.8161632, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1861418386}
-  m_LocalEulerAnglesHint: {x: 89, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 87, y: 0, z: 0}
 --- !u!1 &2147470668
 GameObject:
   m_ObjectHideFlags: 0
@@ -41784,6 +41762,7 @@ MonoBehaviour:
   bowlingManager: {fileID: 1391348745}
   yFallThreshold: 0.2
   yValue: 0
+  markForDesturction: 0
 --- !u!4 &4931218026130611236
 Transform:
   m_ObjectHideFlags: 0
@@ -41863,6 +41842,7 @@ MonoBehaviour:
   bowlingManager: {fileID: 1391348745}
   yFallThreshold: 0.2
   yValue: 0
+  markForDesturction: 0
 --- !u!4 &4931218026429866334
 Transform:
   m_ObjectHideFlags: 0
@@ -41942,6 +41922,7 @@ MonoBehaviour:
   bowlingManager: {fileID: 1391348745}
   yFallThreshold: 0.2
   yValue: 0
+  markForDesturction: 0
 --- !u!4 &4931218026472061286
 Transform:
   m_ObjectHideFlags: 0
@@ -42021,6 +42002,7 @@ MonoBehaviour:
   bowlingManager: {fileID: 1391348745}
   yFallThreshold: 0.2
   yValue: 0
+  markForDesturction: 0
 --- !u!4 &4931218026623609516
 Transform:
   m_ObjectHideFlags: 0
@@ -42100,6 +42082,7 @@ MonoBehaviour:
   bowlingManager: {fileID: 1391348745}
   yFallThreshold: 0.2
   yValue: 0
+  markForDesturction: 0
 --- !u!4 &4931218026977535037
 Transform:
   m_ObjectHideFlags: 0
@@ -42179,6 +42162,7 @@ MonoBehaviour:
   bowlingManager: {fileID: 1391348745}
   yFallThreshold: 0.2
   yValue: 0
+  markForDesturction: 0
 --- !u!4 &4931218027215651569
 Transform:
   m_ObjectHideFlags: 0
@@ -42258,6 +42242,7 @@ MonoBehaviour:
   bowlingManager: {fileID: 1391348745}
   yFallThreshold: 0.2
   yValue: 0
+  markForDesturction: 0
 --- !u!4 &4931218027265706486
 Transform:
   m_ObjectHideFlags: 0
@@ -42337,6 +42322,7 @@ MonoBehaviour:
   bowlingManager: {fileID: 1391348745}
   yFallThreshold: 0.2
   yValue: 0
+  markForDesturction: 0
 --- !u!4 &4931218027823090929
 Transform:
   m_ObjectHideFlags: 0
@@ -42416,6 +42402,7 @@ MonoBehaviour:
   bowlingManager: {fileID: 1391348745}
   yFallThreshold: 0.2
   yValue: 0
+  markForDesturction: 0
 --- !u!4 &4931218028183914793
 Transform:
   m_ObjectHideFlags: 0
@@ -42495,6 +42482,7 @@ MonoBehaviour:
   bowlingManager: {fileID: 1391348745}
   yFallThreshold: 0.2
   yValue: 0
+  markForDesturction: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -42511,7 +42499,6 @@ SceneRoots:
   - {fileID: 1932291109}
   - {fileID: 463887758}
   - {fileID: 437290235}
-  - {fileID: 1336603411}
   - {fileID: 1391348744}
   - {fileID: 206261872}
   - {fileID: 435922424}
