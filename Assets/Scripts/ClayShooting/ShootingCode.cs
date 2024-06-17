@@ -20,12 +20,18 @@ public class ShootingCode : MonoBehaviour
 
         if (triggerPress >= 0.75f | triggerPress2 >= 0.75f && !cooldown)
         {
-           var pallet = Instantiate(PalletPrefab, PalletSpawnpoint.position, PalletSpawnpoint.rotation);
+           var pallet = Instantiate(PalletPrefab, PalletSpawnpoint.position, PalletPrefab.transform.rotation);
            pallet.GetComponent<Rigidbody>().velocity = -PalletSpawnpoint.forward.normalized * PalletSpeed;
             cooldown = true;
             StartCoroutine(waitingperoid());
         }
-      
+      if(Input.GetKeyDown(KeyCode.Space))
+        {
+            var pallet = Instantiate(PalletPrefab, PalletSpawnpoint.position, PalletSpawnpoint.rotation);
+            pallet.GetComponent<Rigidbody>().velocity = -PalletSpawnpoint.forward.normalized * PalletSpeed;
+            cooldown = true;
+            StartCoroutine(waitingperoid());
+        }
     }
 
     IEnumerator waitingperoid()
