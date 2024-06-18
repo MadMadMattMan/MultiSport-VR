@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GolfBall : MonoBehaviour
 {
+    public GolfPlayerManager manager;
     [SerializeField] ClubPhysics currentClub;
     Rigidbody rb;
     public float speed;

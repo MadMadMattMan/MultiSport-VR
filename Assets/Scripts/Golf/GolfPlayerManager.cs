@@ -5,19 +5,35 @@ using UnityEngine;
 public class GolfPlayerManager : MonoBehaviour
 {
     [SerializeField] Transform[] playerStartLocations;
+    [SerializeField] int[] par;
+    [SerializeField] List<int> scoreCard = new(8);
     Transform playerTF;
+    GameObject putter;
+    [SerializeField] int currentHits;
+    [SerializeField] GameObject golfBall;
 
     private void Start()
     {
         playerTF = gameObject.transform;
+        putter = GameObject.Find("golf_putter");
+        putter.SetActive(false);
     }
 
-
-    public void MovePlayerTo(int LevelNumber)
+    public void BeginCourse()
     {
-        //Takes imput number and -1 (as level 1 is start and 0 is start of array) and moves player to that level
-        playerTF.position = playerStartLocations[LevelNumber - 1].position;
+        putter.SetActive(true);
+        MovePlayerToHole(0);
+    }
+
+    public void MovePlayerToHole(int LevelNumber)
+    {
+        playerTF.position = playerStartLocations[LevelNumber].position;
     }
          
-
+    public void HoleScored(int LevelNumber)
+    {
+        scoreCard[LevelNumber] = currentHits;
+        currentHits = 0;
+        MovePlayerToHole(LevelNumber++);
+    }
 }
