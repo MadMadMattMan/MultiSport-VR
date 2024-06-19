@@ -8,7 +8,7 @@ public class BowlingPins : MonoBehaviour
 
     [SerializeField] float yFallThreshold = 0.2f, yValue;
 
-    public bool markForDesturction = false;
+    public bool pinStatus;
 
 
     private void Update()
@@ -22,7 +22,7 @@ public class BowlingPins : MonoBehaviour
         }
         
         //If  pin isn't moving and marked fr distrctuion, destory it.
-        if (GetComponent<Rigidbody>().velocity != Vector3.zero && GetComponent<Rigidbody>().angularVelocity != Vector3.zero && markForDesturction)
+        if (GetComponent<Rigidbody>().velocity != Vector3.zero && GetComponent<Rigidbody>().angularVelocity != Vector3.zero && pinStatus)
         {
             Destroy(gameObject);
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BowlingBallCode : MonoBehaviour
 {
     [SerializeField] Transform spawnLocation;
+    [SerializeField] GameObject bowlingManager;
 
     void Update()
     {

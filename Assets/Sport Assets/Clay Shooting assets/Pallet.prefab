@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5054201364760778969}
   - component: {fileID: 6049139273162321372}
   - component: {fileID: 6437608349657625279}
+  - component: {fileID: 7179203770740519826}
   m_Layer: 0
   m_Name: Pallet
   m_TagString: Untagged
@@ -150,6 +151,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PalletTime: 5
+--- !u!75 &7179203770740519826
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2670735052640840464}
+  m_Enabled: 1
+  m_Force: {x: 0, y: -2, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &8439853379054117130
 GameObject:
   m_ObjectHideFlags: 0
