@@ -8,6 +8,7 @@ TagManager:
   - Ball
   - Ghost Head
   - Sand
+  - Pallet
   layers:
   - Default
   - TransparentFX

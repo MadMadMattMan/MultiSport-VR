@@ -13,5 +13,17 @@ public class Clay : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag== "Pallet")
+        {
+            Destroy(collision.gameObject); 
+            // Particle system
+            Destroy(gameObject);
+
+
+        }
     }
 }

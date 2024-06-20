@@ -16514,13 +16514,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660262924}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.58027023, y: 0.12892692, z: -0.4040872, w: -0.69525385}
+  m_LocalRotation: {x: 0.5844978, y: 0.12159063, z: -0.39794773, w: -0.6965743}
   m_LocalPosition: {x: 50.55, y: 23.04, z: 57.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -44.642, y: 294.347, z: 90}
+  m_LocalEulerAnglesHint: {x: -45.85, y: 294.347, z: 90}
 --- !u!114 &660262926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16537,6 +16537,10 @@ MonoBehaviour:
   cooldown: 0
   cooldowntime: 3
   ClayPrefab: {fileID: 5989160087788984192, guid: 9208ff53c5cb557469a449243ebe1c56, type: 3}
+  minX: -34.15
+  maxX: 15.85
+  minY: -64.347
+  maxY: 50
 --- !u!1 &663919675
 GameObject:
   m_ObjectHideFlags: 0
