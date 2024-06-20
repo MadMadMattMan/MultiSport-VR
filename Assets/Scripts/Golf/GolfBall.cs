@@ -8,7 +8,7 @@ public class GolfBall : MonoBehaviour
     public GolfPlayerManager manager;
     [SerializeField] ClubPhysics currentClub;
     Rigidbody rb;
-    public float speed;
+    public float speed, holeNumber;
 
     public bool detectingMovement;
 
@@ -58,5 +58,15 @@ public class GolfBall : MonoBehaviour
         float frictionMultiplier = Mathf.Pow(-frictionBaseMultiplier, -10 * rb.velocity.magnitude) + 1; //if speed is more than 1, no effect but as speed approches 0, friction multiplier approches 0
 
         rb.AddForceAtPosition(-rb.velocity / (stoppingForce * frictionMultiplier) , ballBase);
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Golf Hole")
+        {
+            manager.HoleScored((int)holeNumber);
+            Destroy(gameObject);
+        }
     }
 }
