@@ -25,15 +25,25 @@ public class GolfPlayerManager : MonoBehaviour
         MovePlayerToHole(0);
     }
 
-    public void MovePlayerToHole(int LevelNumber)
-    {
-        playerTF.position = playerStartLocations[LevelNumber].position;
-    }
+    
          
     public void HoleScored(int LevelNumber)
     {
         scoreCard[LevelNumber] = currentHits;
         currentHits = 0;
         MovePlayerToHole(LevelNumber++);
+        SpawnBallAtHole(LevelNumber++);
+    }
+
+    public void MovePlayerToHole(int LevelNumber)
+    {
+        playerTF.position = playerStartLocations[LevelNumber].position;
+    }
+
+    void SpawnBallAtHole(int LevelNumber)
+    {
+        GameObject ball = Instantiate(golfBall, playerStartLocations[LevelNumber].position, golfBall.transform.rotation);
+        ball.GetComponent<GolfBall>().manager = this;
+        ball.GetComponent<GolfBall>().holeNumber = LevelNumber;
     }
 }
