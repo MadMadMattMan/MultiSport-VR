@@ -13,25 +13,16 @@ public class BowlingPins : MonoBehaviour
 
     private void Update()
     {
-        yValue = transform.position.y;
+        if (!pinStatus)
+        {
+            yValue = transform.position.y;
 
-        if (transform.position.y < yFallThreshold)
-        {
-            bowlingManager.PinFallen(gameObject);
-            Debug.Log("Pin Fallen");
+            if (yValue < yFallThreshold)
+            {
+                pinStatus = true;
+                Debug.Log("Pin Fallen");
+                bowlingManager.PinFallen(gameObject);
+            }
         }
-        
-        //If  pin isn't moving and marked fr distrctuion, destory it.
-        if (GetComponent<Rigidbody>().velocity != Vector3.zero && GetComponent<Rigidbody>().angularVelocity != Vector3.zero && pinStatus)
-        {
-            Destroy(gameObject);
-        }
-
-        //if pin has fallen over
-        if (transform.position.y < -2)
-        {
-            Destroy(gameObject);
-        }
-        
     }
 }

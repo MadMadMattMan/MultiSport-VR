@@ -5,11 +5,11 @@ using UnityEngine;
 public class BowlingBallCode : MonoBehaviour
 {
     [SerializeField] Transform spawnLocation;
-    [SerializeField] GameObject bowlingManager;
+    [SerializeField] BowlingManager bowlingManager;
 
     void Update()
     {
-        if (transform.position.y < -1)
+        if (transform.localPosition.y < -7.4)
         {
             ReturnBall();
         }
@@ -23,5 +23,8 @@ public class BowlingBallCode : MonoBehaviour
 
         //Move Ball
         GetComponent<Transform>().position = spawnLocation.position;
+
+        //Update everything
+        bowlingManager.BallBowled();
     }
 }

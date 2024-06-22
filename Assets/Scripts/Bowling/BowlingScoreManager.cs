@@ -11,6 +11,7 @@ public class BowlingScoreManager : MonoBehaviour
     public TextMeshProUGUI[] frameTexts;
     public TextMeshProUGUI[] totalTexts;
     public int score;
+    public bool gameOver;
 
     [SerializeField] int currentBall, currentFrame, tempScore;
     [SerializeField] BowlingManager bowlingManager;
@@ -27,46 +28,56 @@ public class BowlingScoreManager : MonoBehaviour
 
         currentBall = 0;
         currentFrame = 0;
+        score = 0;
+        gameOver = false;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            UpdateFrameText("1".ToString());
+            //UpdateFrameText("X".ToString());
         }
     }
 
     public void UpdateFrameText(string frameScore)
     {
+        //If gameOver, don't run
+        if (gameOver)
+            return;
+
         bool strike = false;
         bool spare = false;
 
         //If strike
         if (frameScore == "X")
+        {
             strike = true;
+
+            if (currentFrame < 9)
+            {
+                currentBall++;
+            }
+        }
 
         //If spare
         if (frameScore == "/")
             spare = true;
 
         //If reach 2nd last frame and no strike or spare, end game
-        if (currentBall == 20 && !strike && !spare)
+        if (currentBall == 20 && !strike && !spare || currentBall > 20)
         {
+            UpdateScore(frameScore);
             Debug.Log("Game Ended");
-            Destroy(bowlingManager.gameObject);
-            return;
-        }
-        else if (currentBall > 20)
-        {
-            Debug.Log("Game Ended");
-            Destroy(bowlingManager.gameObject);
+            gameOver = true;
             return;
         }
 
         frameTexts[currentBall].text = frameScore;
         currentBall++;
-        if (currentBall == 3 || currentBall == 5 || currentBall == 7 || currentBall == 9 || currentBall == 11 || currentBall == 13 || currentBall == 15 || currentBall == 17 || currentBall == 19)
+
+        //Checks if current ball is even, if so total the score
+        if (currentBall % 2 == 0 && currentBall != 20)
         {
             UpdateScore(frameScore);
             currentFrame++;
@@ -84,13 +95,14 @@ public class BowlingScoreManager : MonoBehaviour
         tempScore += recentScore;
 
         //if tempscore is more than 10 (not possible), set it to 10 (the max)
-        if (tempScore > 10)
+        if (tempScore > 10 && currentFrame < 9)
             tempScore = 10;
 
         //Display temp score as total
         totalTexts[currentFrame].text = (score + tempScore).ToString();
 
         //Reset temp score
+        score += tempScore;
         tempScore = 0;
     }
 
