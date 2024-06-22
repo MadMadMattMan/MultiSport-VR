@@ -32,14 +32,6 @@ public class BowlingScoreManager : MonoBehaviour
         gameOver = false;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //UpdateFrameText("X".ToString());
-        }
-    }
-
     public void UpdateFrameText(string frameScore)
     {
         //If gameOver, don't run
@@ -73,7 +65,7 @@ public class BowlingScoreManager : MonoBehaviour
             return;
         }
 
-        frameTexts[currentBall].text = frameScore;
+        frameTexts[currentBall].text = (StringToInt(frameScore) - tempScore).ToString();
         currentBall++;
 
         //Checks if current ball is even, if so total the score
@@ -92,7 +84,7 @@ public class BowlingScoreManager : MonoBehaviour
         int recentScore = StringToInt(frameScore);
         
         //Add it to temp score
-        tempScore += recentScore;
+        recentScore += recentScore;
 
         //if tempscore is more than 10 (not possible), set it to 10 (the max)
         if (tempScore > 10 && currentFrame < 9)
@@ -104,6 +96,9 @@ public class BowlingScoreManager : MonoBehaviour
         //Reset temp score
         score += tempScore;
         tempScore = 0;
+
+        //Resets the pins
+        bowlingManager.ResetPins();
     }
 
     int StringToInt(string convertee)

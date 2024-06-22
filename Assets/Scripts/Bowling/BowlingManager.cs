@@ -12,20 +12,34 @@ public class BowlingManager : MonoBehaviour
     [SerializeField] List<GameObject> balls; //Full 5
 
     [SerializeField] List<GameObject> fallenPins = new(10);
+    [SerializeField] List<GameObject> allPins = new(10);
     int pastFallenPins;
 
     private void Awake()
     {
         fallenPins.Clear();
-    }
+    }  
 
-    private void Update()
+    public void ResetPins()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        pastFallenPins = 0;
+
+        for (int i = 0; i < allPins.Count; i++)
         {
-            BallBowled();
+            //Reset pin
+            allPins[i].GetComponent<Transform>().localPosition = Vector3.zero;
+            allPins[i].GetComponent<Transform>().localRotation = Quaternion.Euler(Vector3.zero);
+            allPins[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+            allPins[i].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            allPins[i].GetComponent<BowlingPins>().pinStatus = false;
+
+            //Enable the pin again
+            allPins[i].SetActive(true);
         }
-    }    
+
+        fallenPins.Clear();
+
+    }
 
     public void BallBowled()
     {
@@ -76,4 +90,16 @@ public class BowlingManager : MonoBehaviour
         //Match the pin to a row for reset
         fallenPins.Add(pin);
     }
+
+
+
+    //Order of Operations:
+    //bowlingManager.PinFallen() [No Issues]
+
+    //bowlingBallCode.ReturnBall() [No Issues]
+    //bowlingManager.BallBowled() [No Issues]
+    //bowlingManager.RemovePins() [No Issues]
+
+    //scoreManager.UpdateFrameText(ScoreCheck()) 
+    //scoreManager.UpdateScore()
 }
