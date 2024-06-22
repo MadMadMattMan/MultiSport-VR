@@ -13,7 +13,7 @@ public class BowlingScoreManager : MonoBehaviour
     public int score;
     public bool gameOver;
 
-    [SerializeField] int currentBall, currentFrame, tempScore;
+    [SerializeField] int currentBall, currentFrame, tempScore, scoreMultiplier; //scoreMultiplier is number of throws doubled
     [SerializeField] BowlingManager bowlingManager;
 
     private void Start()
@@ -30,13 +30,25 @@ public class BowlingScoreManager : MonoBehaviour
         currentFrame = 0;
         score = 0;
         gameOver = false;
+        scoreMultiplier = 0;
     }
 
     public void UpdateFrameText(string frameScore)
     {
+        Debug.Log("Updated Frame Text");
         //If gameOver, don't run
         if (gameOver)
             return;
+
+        //If multiplier is active, double points for the ball
+        if (scoreMultiplier > 0)
+        {
+            //Double score
+            score += StringToInt(frameScore);
+
+            //Decrease scoreMultiplier
+            scoreMultiplier -= 1;
+        }
 
         bool strike = false;
         bool spare = false;
@@ -45,6 +57,7 @@ public class BowlingScoreManager : MonoBehaviour
         if (frameScore == "X")
         {
             strike = true;
+            scoreMultiplier += 2;
 
             if (currentFrame < 9)
             {
@@ -54,40 +67,58 @@ public class BowlingScoreManager : MonoBehaviour
 
         //If spare
         if (frameScore == "/")
+        {
             spare = true;
+            scoreMultiplier += 1;
+        }
 
-        //If reach 2nd last frame and no strike or spare, end game
+        //If reach 2nd of last frame and no strike or spare, end game
         if (currentBall == 20 && !strike && !spare || currentBall > 20)
         {
-            UpdateScore(frameScore);
+            UpdateTotalScore(frameScore);
             Debug.Log("Game Ended");
             gameOver = true;
             return;
         }
 
-        frameTexts[currentBall].text = (StringToInt(frameScore) - tempScore).ToString();
+        //Scribe notecard
+        frameTexts[currentBall].text = frameScore;
+        
+
+        //Progress scorecard
         currentBall++;
 
         //Checks if current ball is even, if so total the score
         if (currentBall % 2 == 0 && currentBall != 20)
         {
-            UpdateScore(frameScore);
+            UpdateTotalScore(frameScore);
             currentFrame++;
+
+            if (strike)
+                tempScore += 10;
         }
         else
             tempScore += StringToInt(frameScore);
+
+        //If a strike or a spare is thrown on the last frame, reset for an extra throw/s
+        if (currentFrame == 9 && strike || currentFrame == 9 && spare)
+        {
+            //Resets the pins
+            bowlingManager.ResetPins();
+        }
     }
 
-    void UpdateScore(string frameScore)
+    void UpdateTotalScore(string frameScore)
     {
+        Debug.Log("Updated Total Text");
         //Get ball score
         int recentScore = StringToInt(frameScore);
-        
-        //Add it to temp score
-        recentScore += recentScore;
+
+        //Increases tempscore by the pins scored
+        tempScore += recentScore;
 
         //if tempscore is more than 10 (not possible), set it to 10 (the max)
-        if (tempScore > 10 && currentFrame < 9)
+        if (tempScore >= 10 && currentFrame < 9)
             tempScore = 10;
 
         //Display temp score as total
@@ -95,6 +126,7 @@ public class BowlingScoreManager : MonoBehaviour
 
         //Reset temp score
         score += tempScore;
+
         tempScore = 0;
 
         //Resets the pins
@@ -103,6 +135,7 @@ public class BowlingScoreManager : MonoBehaviour
 
     int StringToInt(string convertee)
     {
+        Debug.Log("Coverted String to Int");
         //If Strike
         if (convertee == "X")
             return 10;
@@ -126,6 +159,6 @@ public class BowlingScoreManager : MonoBehaviour
             }
         }
 
-        return 0;
+        return 10;
     }
 }

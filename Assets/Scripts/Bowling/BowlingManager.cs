@@ -13,7 +13,7 @@ public class BowlingManager : MonoBehaviour
 
     [SerializeField] List<GameObject> fallenPins = new(10);
     [SerializeField] List<GameObject> allPins = new(10);
-    int pastFallenPins;
+    [SerializeField] int pastFallenPins;
 
     private void Awake()
     {
@@ -68,6 +68,7 @@ public class BowlingManager : MonoBehaviour
     string ScoreCheck()
     {
         Debug.Log("ScoreCheck()");
+
         int pinsFallen = fallenPins.Count;
 
         string pinsFallenStr = pinsFallen.ToString();
@@ -75,12 +76,14 @@ public class BowlingManager : MonoBehaviour
         if (pinsFallen == 0)
             pinsFallenStr = "-";
 
-        if (pinsFallen == 10)
+        else if (pinsFallen == 10)
             pinsFallenStr = "X";
 
-        if (pastFallenPins + pinsFallen == 10)
+        else if (pastFallenPins + pinsFallen == 10)
             pinsFallenStr = "/";
 
+        pastFallenPins = pinsFallen;
+        fallenPins.Clear();
         return pinsFallenStr;
     }
 
