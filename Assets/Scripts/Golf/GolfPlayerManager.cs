@@ -9,7 +9,7 @@ public class GolfPlayerManager : MonoBehaviour
     [SerializeField] List<int> scoreCard = new(8);
     Transform playerTF;
     GameObject putter;
-    [SerializeField] int currentHits;
+    [SerializeField] int currentHits, currentHole;
     [SerializeField] GameObject golfBall;
 
     private void Start()
@@ -17,6 +17,8 @@ public class GolfPlayerManager : MonoBehaviour
         playerTF = gameObject.transform;
         putter = GameObject.Find("golf_putter");
         putter.SetActive(false);
+
+        currentHole = 0;
     }
 
     public void BeginCourse()
@@ -27,12 +29,12 @@ public class GolfPlayerManager : MonoBehaviour
 
     
          
-    public void HoleScored(int LevelNumber)
+    public void HoleScored()
     {
-        scoreCard[LevelNumber] = currentHits;
+        scoreCard[currentHole] = currentHits;
         currentHits = 0;
-        MovePlayerToHole(LevelNumber++);
-        SpawnBallAtHole(LevelNumber++);
+        MovePlayerToHole(currentHole++);
+        SpawnBallAtHole();
     }
 
     public void MovePlayerToHole(int LevelNumber)
@@ -40,10 +42,10 @@ public class GolfPlayerManager : MonoBehaviour
         playerTF.position = playerStartLocations[LevelNumber].position;
     }
 
-    void SpawnBallAtHole(int LevelNumber)
+    void SpawnBallAtHole()
     {
-        GameObject ball = Instantiate(golfBall, playerStartLocations[LevelNumber].position, golfBall.transform.rotation);
+        GameObject ball = Instantiate(golfBall, playerStartLocations[currentHole].position, golfBall.transform.rotation);
         ball.GetComponent<GolfBall>().manager = this;
-        ball.GetComponent<GolfBall>().holeNumber = LevelNumber;
+        ball.GetComponent<GolfBall>().holeNumber = currentHole;
     }
 }

@@ -63,9 +63,9 @@ public class GolfBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Golf Hole")
+        if (other.gameObject.name == "Golf Hole")
         {
-            manager.HoleScored((int)holeNumber);
+            manager.HoleScored();
             Destroy(gameObject);
         }
     }
