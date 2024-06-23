@@ -6632,6 +6632,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7061481904857160914, guid: 341b528703c1ffc4380741ea1187fe9c, type: 3}
+--- !u!1 &753394934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3474440720633601339, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+  m_PrefabInstance: {fileID: 1662512287}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &756300527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8596,9 +8601,11 @@ MonoBehaviour:
   - {fileID: 1484409375}
   par: 0200000003000000030000000500000005000000060000000600000005000000
   scoreCard: 0000000000000000000000000000000000000000000000000000000000000000
+  putter: {fileID: 1446276075}
   currentHits: 0
   currentHole: 0
   golfBall: {fileID: 6065118687577739206, guid: 5393a8110f3d203458579593c498d0ed, type: 3}
+  putterPhysics: {fileID: 1576809011}
 --- !u!4 &931744889 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4825583034417838724, guid: 49da88fe81858a3489149c318c68c096, type: 3}
@@ -12190,6 +12197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735b337580608ec4bb83d841baff4b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 931744888}
 --- !u!1001 &1304519079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13983,6 +13991,11 @@ Transform:
   - {fileID: 879638680}
   m_Father: {fileID: 735970211}
   m_LocalEulerAnglesHint: {x: 0, y: 25.004, z: 0}
+--- !u!1 &1446276075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1758839349212528501, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+  m_PrefabInstance: {fileID: 1662512287}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1449317364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15270,6 +15283,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4631977158232566, guid: 6dcae7204dd466c4c862bc640ea7c02e, type: 3}
   m_PrefabInstance: {fileID: 1576666776}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1576809009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3735890238041053533, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+  m_PrefabInstance: {fileID: 1662512287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1576809011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6509634736073204463, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+  m_PrefabInstance: {fileID: 1662512287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576809009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97349f8cf9f25a4ca869e7328d91132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1602508410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15911,6 +15940,30 @@ PrefabInstance:
     - target: {fileID: 2589948493797661359, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509634736073204463, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: clubPower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509634736073204463, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: clubGhostHead
+      value: 
+      objectReference: {fileID: 753394934}
+    - target: {fileID: 6509634736073204463, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: clubPhysicsHead
+      value: 
+      objectReference: {fileID: 1576809009}
+    - target: {fileID: 6509634736073204463, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: hapticCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509634736073204463, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: hapticCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509634736073204463, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}
+      propertyPath: hapticCurve.m_Curve.Array.data[1].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7833388384073039339, guid: 2d50b6748ca1d7f49a1659aaea336e60, type: 3}

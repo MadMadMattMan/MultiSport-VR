@@ -8,14 +8,15 @@ public class GolfPlayerManager : MonoBehaviour
     [SerializeField] int[] par;
     [SerializeField] List<int> scoreCard = new(8);
     Transform playerTF;
-    GameObject putter;
+    [SerializeField] GameObject putter;
     [SerializeField] int currentHits, currentHole;
     [SerializeField] GameObject golfBall;
+
+    [SerializeField] ClubPhysics putterPhysics;
 
     private void Start()
     {
         playerTF = gameObject.transform;
-        putter = GameObject.Find("golf_putter");
         putter.SetActive(false);
 
         currentHole = 0;
@@ -33,7 +34,8 @@ public class GolfPlayerManager : MonoBehaviour
     {
         scoreCard[currentHole] = currentHits;
         currentHits = 0;
-        MovePlayerToHole(currentHole++);
+        currentHole++;
+        MovePlayerToHole(currentHole);
         SpawnBallAtHole();
     }
 
@@ -47,5 +49,7 @@ public class GolfPlayerManager : MonoBehaviour
         GameObject ball = Instantiate(golfBall, playerStartLocations[currentHole].position, golfBall.transform.rotation);
         ball.GetComponent<GolfBall>().manager = this;
         ball.GetComponent<GolfBall>().holeNumber = currentHole;
+
+        putterPhysics.ball = ball;
     }
 }

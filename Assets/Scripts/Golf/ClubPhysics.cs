@@ -7,8 +7,9 @@ using UnityEngine;
 
 public class ClubPhysics : MonoBehaviour
 {
-    [SerializeField] GameObject ball, clubPhysicsHead, clubGhostHead;
+    [SerializeField] GameObject clubPhysicsHead, clubGhostHead;
     [SerializeField] ClubLength currentClubLength;
+    public GameObject ball;
 
     private void Start()
     {

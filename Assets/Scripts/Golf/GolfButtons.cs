@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GolfButtons : MonoBehaviour
 {
+    [SerializeField] GolfPlayerManager player;
+
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
@@ -20,7 +22,14 @@ public class GolfButtons : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Game Started");
-        SceneManager.LoadScene(0);
+        player.BeginCourse();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartGame();
+        }
+    }
 }
