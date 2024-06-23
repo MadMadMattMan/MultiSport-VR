@@ -10153,7 +10153,7 @@ GameObject:
   - component: {fileID: 799851015}
   - component: {fileID: 799851016}
   m_Layer: 0
-  m_Name: Play
+  m_Name: Restart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
