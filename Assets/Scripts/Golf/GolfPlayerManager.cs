@@ -24,14 +24,17 @@ public class GolfPlayerManager : MonoBehaviour
 
     public void BeginCourse()
     {
+        Debug.Log("BeginCourse() started");
         putter.SetActive(true);
         MovePlayerToHole(0);
+        SpawnBallAtHole();
     }
 
     
          
     public void HoleScored()
     {
+        Debug.Log("HoleScored() started");
         scoreCard[currentHole] = currentHits;
         currentHits = 0;
         currentHole++;
@@ -41,12 +44,14 @@ public class GolfPlayerManager : MonoBehaviour
 
     public void MovePlayerToHole(int LevelNumber)
     {
+        Debug.Log("MovePlayerToHole() started");
         playerTF.position = playerStartLocations[LevelNumber].position;
     }
 
     void SpawnBallAtHole()
     {
-        GameObject ball = Instantiate(golfBall, playerStartLocations[currentHole].position, golfBall.transform.rotation);
+        Debug.Log("SpawnBallAtHole() started");
+        GameObject ball = Instantiate(golfBall, playerStartLocations[currentHole].position + new Vector3(0, 0.25f, 0), golfBall.transform.rotation);
         ball.GetComponent<GolfBall>().manager = this;
         ball.GetComponent<GolfBall>().holeNumber = currentHole;
 

@@ -15,9 +15,7 @@ public class ClubPhysics : MonoBehaviour
     {
         currentClubLength = GetComponentInParent<ClubLength>();
 
-        clubPhysicsHead = gameObject;
-        clubGhostHead = GameObject.FindGameObjectWithTag("Ghost Head");
-        ball = GameObject.FindGameObjectWithTag("Ball");    
+        clubPhysicsHead = gameObject; 
 
         clubGhostHead.SetActive(false);
     }

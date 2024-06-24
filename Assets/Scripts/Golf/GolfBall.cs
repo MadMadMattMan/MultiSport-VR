@@ -23,6 +23,11 @@ public class GolfBall : MonoBehaviour
         Detect_Speed();
         speed = rb.velocity.magnitude;
         //timeAfterHit += Time.deltaTime;
+
+        if (transform.position.y < -3)
+        {
+            //manager.BallOutOfBounds();
+        }
     }
 
     void Detect_Speed()
