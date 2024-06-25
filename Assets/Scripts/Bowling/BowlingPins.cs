@@ -8,8 +8,14 @@ public class BowlingPins : MonoBehaviour
 
     [SerializeField] float yFallThreshold = 0.2f, yValue;
 
+    AudioSource pinSound;
+
     public bool pinStatus;
 
+    private void Start()
+    {
+        pinSound = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -24,5 +30,10 @@ public class BowlingPins : MonoBehaviour
                 bowlingManager.PinFallen(gameObject);
             }
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        pinSound.Play();
     }
 }
