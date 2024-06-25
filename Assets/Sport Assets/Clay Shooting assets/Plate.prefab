@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 618257456697653193}
   - component: {fileID: 3684595451706752848}
   - component: {fileID: 341491214148348409}
-  - component: {fileID: 7279398189416422396}
+  - component: {fileID: -4787802862499596260}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -147,7 +147,7 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
---- !u!114 &7279398189416422396
+--- !u!114 &-4787802862499596260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,6 +156,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5989160087788984192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d6cb23788065b74490708ba9fd7f8f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1294f88f06992ec44a0a29a459cf3cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

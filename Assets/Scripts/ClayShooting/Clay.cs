@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Oculus.Interaction;
 
 public class Clay : MonoBehaviour
 {
@@ -22,16 +23,18 @@ public class Clay : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag== "Pallet")
-        {
-            Destroy(collision.gameObject); 
-            // Particle system
-            Destroy(gameObject);
-            score = score+1;
-            scoretext.text = "Score: " + score.ToString();
 
-        }
+    public  void Hit(GameObject Clay, GameObject pallet)
+    {
+        Destroy(pallet.gameObject);
+        Debug.Log("Pallet destroyed");
+        // Particle system
+        Destroy(Clay.gameObject);
+        Debug.Log("Clay Has been Destroyed");
+
+        score = score + 1;
+        scoretext.text = "Score: " + score.ToString();
+        Debug.Log("Score Increased");
     }
+
 }
