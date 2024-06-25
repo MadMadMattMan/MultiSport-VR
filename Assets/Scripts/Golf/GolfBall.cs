@@ -26,7 +26,8 @@ public class GolfBall : MonoBehaviour
 
         if (transform.position.y < -3)
         {
-            //manager.BallOutOfBounds();
+            Debug.Log("Ball Below y=-3");
+            manager.BallOutOfBounds();
         }
     }
 
@@ -72,6 +73,11 @@ public class GolfBall : MonoBehaviour
         {
             manager.HoleScored();
             Destroy(gameObject);
+        }
+        else if (other.gameObject.name == "Water")
+        {
+            Debug.Log("Ball in water hazard");
+            manager.BallOutOfBounds();
         }
     }
 }

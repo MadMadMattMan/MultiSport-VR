@@ -30,7 +30,12 @@ public class GolfPlayerManager : MonoBehaviour
         SpawnBallAtHole();
     }
 
-    
+    public void BallOutOfBounds()
+    {
+        Debug.Log("BallOutOfBounds tarted");
+        currentHits++;
+        SpawnBallAtHole();
+    }
          
     public void HoleScored()
     {
