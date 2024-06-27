@@ -10,6 +10,7 @@ public class GolfButtons : MonoBehaviour
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
+        SceneManager.UnloadSceneAsync(2);
         Debug.Log("Clicked Menu");
     }
 
