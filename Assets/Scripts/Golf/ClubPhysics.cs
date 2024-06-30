@@ -96,10 +96,6 @@ public class ClubPhysics : MonoBehaviour
 
 
 
-
-
-
-
     void Run_Haptics()
     {
         OVRInput.Controller activeController = OVRInput.GetActiveController();

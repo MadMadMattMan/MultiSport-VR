@@ -32,6 +32,8 @@ public class GolfPlayerManager : MonoBehaviour
 
     public void BallOutOfBounds()
     {
+        putterPhysics.ball = null;
+
         Debug.Log("BallOutOfBounds tarted");
         currentHits++;
         SpawnBallAtHole();
@@ -59,6 +61,8 @@ public class GolfPlayerManager : MonoBehaviour
         GameObject ball = Instantiate(golfBall, playerStartLocations[currentHole].position + new Vector3(0, 0.25f, 0), golfBall.transform.rotation);
         ball.GetComponent<GolfBall>().manager = this;
         ball.GetComponent<GolfBall>().holeNumber = currentHole;
+
+        putterPhysics.ball = ball;
 
         putterPhysics.ball = ball;
     }

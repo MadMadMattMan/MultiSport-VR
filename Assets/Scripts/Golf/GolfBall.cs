@@ -11,11 +11,13 @@ public class GolfBall : MonoBehaviour
     public float speed, holeNumber;
 
     public bool detectingMovement;
+    bool outOfBounds;
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        outOfBounds = false;
     }
 
     void FixedUpdate()
@@ -24,10 +26,11 @@ public class GolfBall : MonoBehaviour
         speed = rb.velocity.magnitude;
         //timeAfterHit += Time.deltaTime;
 
-        if (transform.position.y < -3)
+        if (transform.position.y < -3 && !outOfBounds)
         {
             Debug.Log("Ball Below y=-3");
             manager.BallOutOfBounds();
+            outOfBounds = true;
         }
     }
 
@@ -74,10 +77,12 @@ public class GolfBall : MonoBehaviour
             manager.HoleScored();
             Destroy(gameObject);
         }
+
         else if (other.gameObject.name == "Water")
         {
             Debug.Log("Ball in water hazard");
             manager.BallOutOfBounds();
+            outOfBounds = true;
         }
     }
 }
