@@ -14,8 +14,9 @@ public class GolfBall : MonoBehaviour
     bool outOfBounds;
 
 
-    private void Start()
+    private void Awake()
     {
+        currentClub = GameObject.Find("putter_head").GetComponent<ClubPhysics>();
         rb = GetComponent<Rigidbody>();
         outOfBounds = false;
     }
@@ -44,9 +45,9 @@ public class GolfBall : MonoBehaviour
             currentClub.Enable_Physics();
         }
         //else, if set to detect movement (and ball is moving), run friction calculations
-        else if (detectingMovement)
+        else if (detectingMovement && speed < 0.1f)
         {
-            Friction_Force();
+            //Friction_Force();
         }
     }
 

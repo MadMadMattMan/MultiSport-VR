@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using Oculus.Interaction;
 public class ShootingCode : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ShootingCode : MonoBehaviour
     public Transform PalletSpawnpoint;
 
     public float PalletSpeed = 30;
+    public AudioSource PalletSound;
 
     public bool cooldown = false;
     [SerializeField] float cooldowntime;
@@ -22,6 +24,7 @@ public class ShootingCode : MonoBehaviour
         {
            var pallet = Instantiate(PalletPrefab, PalletSpawnpoint.position, PalletPrefab.transform.rotation);
            pallet.GetComponent<Rigidbody>().velocity = -PalletSpawnpoint.forward.normalized * PalletSpeed;
+            PalletSound.Play();
             cooldown = true;
             StartCoroutine(waitingperoid());
         }
@@ -29,6 +32,7 @@ public class ShootingCode : MonoBehaviour
         {
             var pallet = Instantiate(PalletPrefab, PalletSpawnpoint.position, PalletSpawnpoint.rotation);
             pallet.GetComponent<Rigidbody>().velocity = -PalletSpawnpoint.forward.normalized * PalletSpeed;
+            PalletSound.Play();
             cooldown = true;
             StartCoroutine(waitingperoid());
         }
