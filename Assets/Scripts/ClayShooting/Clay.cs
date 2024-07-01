@@ -8,6 +8,7 @@ public class Clay : MonoBehaviour
 {
     public int score = 0;
     [SerializeField] TextMeshProUGUI scoretext;
+    [SerializeField] GameObject DeathEffect;
 
     // Update is called once per frame
 
@@ -28,7 +29,9 @@ public class Clay : MonoBehaviour
     {
         Destroy(pallet.gameObject);
         Debug.Log("Pallet destroyed");
-        // Particle system
+        
+        Instantiate(DeathEffect, Clay.transform.position, Clay.transform.rotation);
+
         Destroy(Clay.gameObject);
         Debug.Log("Clay Has been Destroyed");
 

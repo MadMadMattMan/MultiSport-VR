@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.Audio;
 
 public class ClayObject : MonoBehaviour
 {
     Clay Manager;
+    
 
     private void Start()
     {
@@ -17,7 +19,6 @@ public class ClayObject : MonoBehaviour
         if (collision.gameObject.tag == "Pallet")
         {
             Manager.Hit(gameObject, collision.gameObject);
-
         }
     }
 }

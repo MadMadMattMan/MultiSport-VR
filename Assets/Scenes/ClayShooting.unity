@@ -24336,7 +24336,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1b6da183bf58bf44195eaa5414e67a4c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 388e3d76db19ee348b8b41e5a23f076a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -41525,6 +41525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoretext: {fileID: 948471761}
+  DeathEffect: {fileID: 7686222383181467135, guid: 3c065f560c4008d4785073cfd7af13bb, type: 3}
 --- !u!4 &1528966715
 Transform:
   m_ObjectHideFlags: 0
