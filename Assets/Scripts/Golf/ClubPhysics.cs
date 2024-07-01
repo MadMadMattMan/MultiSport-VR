@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class ClubPhysics : MonoBehaviour
 {
+    [SerializeField] GolfPlayerManager manager;
     [SerializeField] GameObject clubPhysicsHead, clubGhostHead;
     [SerializeField] ClubLength currentClubLength;
     public GameObject ball;
@@ -81,7 +82,6 @@ public class ClubPhysics : MonoBehaviour
         if (collision.gameObject.tag == "Ball")
         {
             Disable_Physics();
-            Run_Haptics();
             //Physics_Calculation(ball.GetComponent<Rigidbody>(), collision);
             //Physics_Calculation(ball.GetComponent<Rigidbody>());
             ball.GetComponent<Rigidbody>().velocity = clubVelocity * clubPower;
@@ -89,6 +89,7 @@ public class ClubPhysics : MonoBehaviour
             Debug.Log("Gave ball a velocity with speed " + clubVelocity.magnitude);
 
             Run_Haptics();
+            manager.BallHit();
         }
     }
 

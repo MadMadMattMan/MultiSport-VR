@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GolfPlayerManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class GolfPlayerManager : MonoBehaviour
     [SerializeField] GameObject golfBall;
 
     [SerializeField] ClubPhysics putterPhysics;
+    [SerializeField] TextMeshPro scoreText;
 
     private void Start()
     {
@@ -20,6 +22,9 @@ public class GolfPlayerManager : MonoBehaviour
         putter.SetActive(false);
 
         currentHole = 0;
+        currentHits = 0;
+
+        scoreText.text = "0";
     }
 
     public void BeginCourse()
@@ -32,10 +37,11 @@ public class GolfPlayerManager : MonoBehaviour
 
     public void BallOutOfBounds()
     {
+        Destroy(putterPhysics.ball);
         putterPhysics.ball = null;
 
         Debug.Log("BallOutOfBounds tarted");
-        currentHits++;
+        BallHit();
         SpawnBallAtHole();
     }
          
@@ -65,5 +71,11 @@ public class GolfPlayerManager : MonoBehaviour
         putterPhysics.ball = ball;
 
         putterPhysics.ball = ball;
+    }
+
+    public void BallHit()
+    {
+        currentHits++;
+        scoreText.text = currentHits.ToString();
     }
 }
