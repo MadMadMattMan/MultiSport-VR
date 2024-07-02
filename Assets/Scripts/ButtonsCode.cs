@@ -14,6 +14,7 @@ public class ButtonsCode : MonoBehaviour
     }
     public void LoadBowling()
     {
+      
         SceneManager.LoadScene(1);
         SceneManager.UnloadSceneAsync(0);
         Debug.Log("Clicked Bowling");
