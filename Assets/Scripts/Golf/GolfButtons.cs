@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Oculus.Interaction;
 
 public class GolfButtons : MonoBehaviour
 {
@@ -24,13 +25,5 @@ public class GolfButtons : MonoBehaviour
     {
         Debug.Log("Game Started");
         player.BeginCourse();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartGame();
-        }
     }
 }
