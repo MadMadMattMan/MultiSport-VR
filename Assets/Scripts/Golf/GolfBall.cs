@@ -13,8 +13,12 @@ public class GolfBall : MonoBehaviour
     public bool detectingMovement;
     bool outOfBounds;
 
-
-    private void Awake()
+    private void Start()
+    {
+        StartBall();
+    }
+    //Added because on ball respawn Start() and Awake() won't work
+    public void StartBall()
     {
         currentClub = GameObject.Find("putter_head").GetComponent<ClubPhysics>();
         rb = GetComponent<Rigidbody>();

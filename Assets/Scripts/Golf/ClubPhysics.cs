@@ -88,7 +88,7 @@ public class ClubPhysics : MonoBehaviour
             Debug.Log("Collided with Ball");
             Debug.Log("Gave ball a velocity with speed " + clubVelocity.magnitude);
 
-            Run_Haptics();
+            //Run_Haptics();
             manager.BallHit();
         }
     }
